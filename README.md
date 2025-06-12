@@ -23,9 +23,9 @@ ___
 
 This repository is currently used to host the official issue & bug tracker for DbSchema.
 
-Report bugs or request new features: [Issues](https://github.com/dbschema-pro/dbschema/issues).
+Report bugs or request new features: [Issues](https://github.com/dbschema-pro/dbschema-pro/issues).
 
-For community discussions, support, and feedback, visit our [Forum](https://github.com/dbschema-pro/dbschema/discussions).
+For community discussions, support, and feedback, visit our [Forum](https://github.com/dbschema-pro/dbschema-pro/discussions).
 
 ___
 ## DbSchema Overview
