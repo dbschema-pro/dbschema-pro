@@ -1,0 +1,874 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='1919' height='1117' viewBox='0 0 1919 1117' >
+  <script type='text/ecmascript'>
+  <![CDATA[
+  function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
+  function uhghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','unhighlight'); }  } 
+  ]]>
+  </script> 
+
+<style type='text/css'>
+  text                { fill:#6e798a; font-weight:normal;stroke:#2a2b2c;stroke-width:.1px; font-family: Segoe UI, 'Segoe UI', Dialog; font-size:13.0px; }
+  text.tableHeader    { fill:#576b57; font-weight:normal;stroke:#2a2b2c;stroke-width:.1px; font-family: Segoe UI, 'Segoe UI', Dialog; font-size:13.0px;  font-weight: Regular; }
+  a text:hover        { font-weight:500; }
+  text.highlight      { font-weight:500; }
+  text.white          { fill:#ffffff; }
+  text.colType        { fill:#bac1cb; }
+  text.relName        { fill:#9c9a9a; stroke-width:0; }
+  text.dataType       { stroke:0; font-size:12px; text-anchor: end;}
+  text.legendTitle    { fill:#2b3b64; font-weight:500; }
+  text.legendSubTitle { fill:#616161; font-size:12px; }
+  path, circle        { stroke:#9c9ca0; stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .filled             { fill:#7f7971; }
+  path.virtual        { stroke:#71527b; }
+  path.logo           { fill:#fbeac0;fill-opacity:1;stroke-width:0.3;stroke:#222222; }
+  path.dotted         { stroke-dasharray:3,3; }
+  path.unhighlight    { stroke-width:12; opacity:0; pointer-events:all; }
+  path.highlight      { stroke-width:2; stroke:#154b95; opacity:1; pointer-events:all; }
+  path.line           { stroke-width:10; stroke-linecap:round; stroke-linejoin:round; }
+  rect.entity         { fill:#ffffff; stroke-width:1; shape-rendering:crispEdges; filter:url(#shadow); }
+  line.delim          { stroke-width:1px; shape-rendering:crispEdges; }
+  text.callout        { fill:#201a10; font-family: Segoe UI, 'Segoe UI', Dialog; font-size:13.0px; }
+  rect.callout        { fill:url(#calloutGradient); stroke-width:1px; stroke:#d0cec3; }
+  rect.shape          { stroke:#bebdbd; stroke-width:0.5; }
+  rect.legend         { fill:url(#legendGradient); stroke-width:1px; stroke:#d6dbe4; }
+  text.grp            { fill:#b1b1b1; }
+  rect.grp            { stroke:#aef1ac; stroke-width:1; opacity:0.5; }
+  path.bgPattern      { fill:none;stroke-width:0.6;stroke:#e5e9ee; }
+  path.eval           { fill:#efefef;fill-opacity:1;stroke-width:0.6;stroke:#e9e9e9; }
+  rect.palpable       { fill:#fffbe5; }
+</style>
+<defs>
+  <pattern id="layoutBgA" width="60" height="34.64" patternUnits="userSpaceOnUse">
+    <rect x="0" y="0"  width="60" height="34.64" fill="#edeeef" />
+  </pattern>
+  <pattern id='layoutBgEval'  width='300' height='300' x='0' y='0' patternUnits="userSpaceOnUse">
+    <g transform='scale(1.5)'>
+    <path class='eval' d='m 62.011835,91.267143 c 3.536475,3.175214 2.262669,8.705999 -1.637711,11.015197 -3.594697,5.8423 -6.34682,-2.892623 -9.715478,-4.653898 -5.609222,-2.838926 2.050802,-6.680123 4.77004,-8.319046 2.334696,-0.724067 4.935143,0.312302 6.583149,1.957747 z m -2.720492,2.538595 c -2.698397,-3.517732 -9.282815,1.269287 -3.69635,3.568637 2.765331,5.605665 7.052809,-0.56184 3.69635,-3.568637 z' />
+    <path class='eval' d='m 72.25864,84.624638 c 4.108046,3.143003 -0.737059,6.895259 -1.994918,8.323564 -3.586718,5.561143 -6.495079,-4.197379 -10.07759,-5.582178 -4.443422,-1.088878 1.349298,-7.249213 2.503526,-2.503449 2.464639,4.517161 2.304019,-3.70697 6.291113,-1.995914 1.280083,0.137865 2.410691,0.864819 3.277869,1.757977 z m -2.646109,2.323242 c -4.797162,-3.078383 -2.810517,6.305507 0.515161,1.990646 0.296432,-0.688582 0.01209,-1.493412 -0.515161,-1.990646 z' />
+    <path class='eval' d='m 78.230641,79.436735 c 4.142121,3.027466 -2.020102,10.435276 -3.450543,5.477315 3.306312,-5.248112 -9.186019,-2.220094 -5.805994,-8.77679 -0.544141,-3.93011 6.797826,-2.102227 3.386015,0.245477 -0.181085,2.915838 4.637371,1.019311 5.870522,3.053982 z' />
+    <path class='eval' d='m 82.744502,72.597397 c -4.901605,1.926521 1.146497,6.285555 2.559694,2.225783 6.21817,3.539297 -6.640186,8.416664 -7.590325,1.997457 -2.24365,-2.914883 4.026676,-10.148618 5.030631,-4.22324 z' />
+    <path class='eval' d='m 90.727458,64.259158 c 1.583987,1.690029 3.321317,3.2696 4.81267,5.026353 -2.535706,6.849794 -6.445583,-5.918773 -8.388458,-0.167017 0.782768,2.03426 5.877405,3.752079 2.670979,5.711199 -3.315119,1.519161 -5.782422,-5.157931 -8.858893,-6.780537 -4.229842,-1.139816 1.510134,-7.074128 2.586227,-2.385939 3.141198,5.495193 1.840537,-5.598295 7.177489,-1.404062 z' />
+    <path class='eval' d='m 99.622027,58.374253 c 1.493293,1.9548 -6.281936,7.024659 -0.885258,4.740447 0.386238,-4.434477 6.131941,-1.133173 2.175851,1.618005 -4.421491,6.12739 -13.666659,-3.151506 -7.058299,-7.136537 1.785129,-1.119329 4.348209,-0.743179 5.767706,0.778085 z m -2.900824,1.89746 c -3.608188,-2.208543 -2.280489,5.00803 -0.12563,0.329531 z' />
+    <path class='eval' d='m 115.18023,50.570441 c -1.61703,5.201678 -4.6204,-0.364502 -7.01598,-1.749619 -4.40977,2.122562 4.89641,4.913939 1.89606,7.018157 -2.48061,3.877635 -4.11404,-4.060614 -7.01192,-2.6391 -1.76318,3.107252 7.28394,6.252304 0.87346,7.876177 -1.74515,-2.956649 -9.055498,-5.610518 -3.950378,-8.66062 1.696478,1.897023 1.770418,-5.43503 5.347308,-3.072411 -0.44014,-5.474701 6.11995,-4.950882 7.7846,-0.815355 0.69076,0.682329 1.39587,1.351469 2.07685,2.042771 z' />
+    <path class='eval' d='m 120.54891,39.417125 c 2.50681,1.334124 4.80466,4.941837 0.75044,5.297362 -0.46414,1.89865 -5.25369,5.602652 -8.01742,1.815475 -3.87345,-2.809139 -0.0676,-7.603869 2.3036,-8.133924 1.6795,-3.853018 3.16703,-1.199465 4.96338,1.021087 z m -2.2464,2.175828 c -4.8049,-2.992167 -3.08987,6.380358 0.42374,2.036159 0.33052,-0.677508 0.12099,-1.525836 -0.42374,-2.036159 z' />
+    <path class='eval' d='m 128.50836,24.06821 c -5.10403,3.035506 3.20535,6.383175 5.05938,9.450276 -0.91853,2.95886 -4.06493,3.650723 -5.34691,0.265618 -2.25715,-2.089033 -4.65672,-6.948595 -7.07024,-2.584686 -4.71758,-3.764394 3.81217,-5.812054 5.12382,-9.226328 0.75738,0.677487 1.38637,1.498638 2.23389,2.095175 z' />
+    <path class='eval' d='m 137.14366,22.299812 c -3.09615,2.259885 0.71537,4.412454 1.99042,6.435866 -3.08975,5.080354 -5.91384,-2.98648 -8.92144,-4.094939 1.44369,-3.219573 3.3497,-1.335928 4.27156,-4.41058 0.97822,-0.894325 1.75044,1.871047 2.65946,2.069653 z' />
+    <path class='eval' d='m 136.85093,14.890174 c 2.31562,5.283511 -7.17975,1.771993 -1.29675,-0.475107 l 0.7108,0.08973 z m 4.867,5.317354 c 2.56912,1.439678 4.26517,4.725219 0.30678,5.233637 -1.56592,-3.098864 -9.51683,-5.749448 -3.64502,-8.633714 1.17746,0.325095 2.15375,2.591149 3.33824,3.400077 z' />
+    <path class='eval' d='m 149.95578,11.976423 c 2.50679,1.334142 4.80455,4.94192 0.75041,5.297394 -0.4641,1.898604 -5.25368,5.602645 -8.0174,1.81545 -3.87347,-2.80918 -0.0676,-7.603844 2.30366,-8.133968 1.67949,-3.8530525 3.16695,-1.1993573 4.96333,1.021124 z m -2.24641,2.175828 c -4.80489,-2.992177 -3.08986,6.380343 0.42374,2.036167 0.33055,-0.677518 0.121,-1.52585 -0.42374,-2.036167 z' />
+    <path class='eval' d='m 153.26135,7.538431 c 2.60497,1.5799548 6.03999,5.944272 1.08117,6.050232 -2.53319,-3.231828 -7.20316,-6.4304525 -8.84748,-9.4582682 1.89121,-2.8664883 3.78452,-2.247699 5.38514,0.8929426 0.78017,0.8503859 1.57195,1.6911437 2.38118,2.5150667 z' />
+    </g>
+  </pattern>
+  <linearGradient id='legendGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+    <stop offset='0%' stop-color='#eef5fc' />
+    <stop offset='100%' stop-color='#f7fafe' />
+  </linearGradient>
+  <!-- https://norbat.de/svg-pattern-3d-webmuster/ -->
+  <linearGradient id='calloutGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+    <stop offset='0%' stop-color='#efeae1dd' />
+    <stop offset='100%' stop-color='#e8e9eadd' />
+  </linearGradient>
+  <filter id="shadow">
+    <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#a0a0a0" flood-opacity="0.4" />
+  </filter>
+  <!--
+  <filter id='shadow2' width='120%' height='120%'>
+    <feOffset result='offOut' in='SourceGraphic' dx='0' dy='0' />
+    <feColorMatrix result='matrixOut' in='offOut'
+                   values='0.5 0 0 0 0 0 0.5 0 0 0 0 0 0.5 0 0 0 0 0 0.5 0' />
+    <feGaussianBlur result='blurOut' in='matrixOut' stdDeviation='3' />
+    <feBlend in='SourceGraphic' in2='blurOut' />
+  </filter>
+  -->
+  <filter id='fkShadow' height='130%'>
+    <feGaussianBlur in='SourceAlpha' stdDeviation='1.5'/> <!-- stdDeviation is how much to blur -->
+    <feOffset dx='1.2' dy='1.2' result='offsetblur'/> <!-- how much to offset -->
+    <feMerge>
+      <feMergeNode/> <!-- this contains the offset blurred image -->
+      <feMergeNode in='SourceGraphic'/> <!-- this contains the element that the filter is applied to -->
+    </feMerge>
+  </filter>
+  <symbol id='calloutArrowDown' >
+    <path d='M 0,0 L 8,12 L 16,0 z' style='fill:#f8f6d1;stroke:none; filter: url(#shadow);' />
+    <path d='M 0,0 L 8,12 L 16,0' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='calloutArrowUp' >
+    <path d='M 0,16 L 8,4 L 16,16 z' style='fill:#ffffff; stroke:none; filter: url(#shadow);' />
+    <path d='M 0,16 L 8,4 L 16,16' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='pk' width="13" height="13">
+    <g>
+      <path style='fill:#999999;stroke:#999999;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round;'
+            d='M 9.3678877,3.5695485 C 9.1030218,3.2729386 9.0796382,2.7628519 9.3396185,2.4517097 9.5449651,2.1956495 9.9040386,2.0980533 10.199638,2.2169415 10.533525,2.3415459 10.775153,2.706942 10.750675,3.0842709 10.737029,3.3980003 10.541153,3.699122 10.258248,3.8066067 9.966649,3.9250429 9.6169668,3.8418805 9.4008073,3.6062324 9.3894892,3.5943518 9.3785264,3.582104 9.3678886,3.5695487 z M 11.226617,6.9916004 C 11.888137,6.3548946 12.293488,5.4172188 12.311087,4.442353 12.378144,2.7379364 11.248678,1.0541269 9.7322318,0.44767357 8.3887112,-0.1280313 6.7865012,0.26822889 5.8918395,1.4007929 5.080823,2.3839145 4.9336815,3.8452096 5.3635544,5.101615 L 4.3670905,5.315913 C 4.0664984,5.3682645 4.0967703,5.6316724 4.2574957,5.8208829 L 4.9124,6.5655244 4.1543436,7.2512357 3.2136002,7.2163506 3.1674775,8.5586827 2.0406832,8.5086512 1.5965306,8.9299953 1.5471661,10.179833 0.75616674,10.195223 0.2112857,10.758575 0.15354288,11.735988 0.07199052,12.765553 c 0.36440953,0.238225 0.79006967,0.195492 1.44938278,-0.02675 L 6.3033562,8.1282037 6.8217102,8.6765688 C 6.9985465,8.8799427 7.3003699,8.7497574 7.358381,8.5016252 L 7.4938877,7.5084164 c 0.8537488,0.3985387 1.8303125,0.4711541 2.6851793,0.1427713 0.393927,-0.1407258 0.746858,-0.3701772 1.04755,-0.6595873 z'/>
+      <path d='M 6.8014948,6.3102123 0.15369063,13.024481 0.21560535,12.141962 6.0062342,6.2683782 z'
+            style='fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:0.06912433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:3.00300009'/>
+    </g>
+  </symbol>
+  <symbol id='idx1' width="13" height="13">
+    <g transform='scale(0.99)'>
+      <rect width='4' height='4' x='7' y='1' style='fill:#ffff3f;stroke:#b48333;stroke-width:0.6;' ry='0.83'/>
+      <rect width='4' height='4' x='1' y='7' style='fill:#ffff3f;stroke:#b48333;stroke-width:0.6;' ry='0.832'/>
+      <rect width='4' height='4' x='7' y='7' style='fill:#ffff3f;stroke:#b48333;stroke-width:0.6;' ry='0.832'/>
+    </g>
+  </symbol>
+  <symbol id='idx2' width="13" height="13">
+    <g transform='scale(0.99)'>
+      <rect width='4' height='3' x='6' y='1' style='fill:#7fc8e9;stroke:#2f6f8c;stroke-width:0.6;' ry='0.83'/>
+      <rect width='7' height='3' x='3' y='6' style='fill:#7fc8e9;stroke:#2f6f8c;stroke-width:0.6;' ry='0.832'/>
+    </g>
+  </symbol>
+  <symbol id='unq' width="13" height="13">
+    <g transform='scale(0.75)'>
+      <path style="fill:#999999;stroke:none;" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+      <text x='4' y='9' style='font-size:8px;fill:#999999;'>1</text>
+    </g>
+  </symbol>
+  <symbol id='idx' width="13" height="13">
+    <g transform='scale(0.75)'>
+      <path style="fill:#999999;stroke:none;" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+    </g>
+  </symbol>
+  <symbol id='fk' width="13" height="13">
+    <g transform='scale(0.87)'>
+      <path style='fill:none;stroke:#5a72a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 1.1,11 1,5.3 C 1,3.6 1.6,3.3 2.9,3.3 l 7.9,0' />
+      <path style='fill:#5a72a8;stroke:#5a72a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 6.3,0.8 11.3,3.4 6.3,5.6 Z' />
+    </g>
+  </symbol>
+  <symbol id='ref' width="13" height="13">
+    <g transform='scale(0.87)'>
+      <path style='fill:none;stroke:#906b25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='m 10.9,11.2 0,-5.8 C 10,3.7 10,3 9,3 l -7.9,0'/>
+      <path style='fill:#906b25;stroke:#906b25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 5.7,0.8 0.7,3.4 5.7,5.6 Z'/>
+    </g>
+  </symbol>
+  <symbol id='flag0' width="16" height="16">
+    <g transform='scale(0.75)'>
+      <path style="fill:#b7d0f6;stroke:none;" d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+    </g>
+  </symbol>
+  <symbol id='flag1' width="16" height="16">
+    <g transform='scale(0.75)'>
+      <path style="fill:#f4a393;stroke:none;" d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+    </g>
+  </symbol>
+  <symbol id='flag2' width="16" height="16">
+    <g transform='scale(0.75)'>
+      <path style="fill:#77ec8b;stroke:none;" d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+    </g>
+  </symbol>
+  <symbol id='nn' width="3" height="3">
+    <path style='stroke:#da897b;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0,0 3,3 M 0,3 3,0 z'/>
+  </symbol>
+  <symbol id='virtual' width="16" height="16">
+    <g transform='scale(0.99)'>
+      <circle cx='8' cy='8' r='5' style='#9e9185;stroke-width:1;fill:transparent' />
+      <path style='stroke:#5394b8;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 2.71,5.8 Q-2.12,-2.20 9.15,6.52 Q 17.92,17.67 10.53,13.56'/>
+      <path style='stroke:#5394b8;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 5.47,13.64 Q -1.82,17.24 6.65,6.78 Q 17.88,-1.36 13.51,5.42'/>
+    </g>
+  </symbol>
+  <symbol id='leaf' width="16" height="16">
+    <g transform='scale(0.99)'>
+      <path style='stroke:#7290ab9d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M .7,0 L.7,9.2 L3.85,9.2'/>
+      <text x="4" y="13" style='fill:#b0880d;stroke-width:0;font-size:14px;'>{ }</text>
+    </g>
+  </symbol>
+  <symbol id='leafArray' width="16" height="16">
+    <g transform='scale(0.99)'>
+      <path style='stroke:#7290ab9d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M .7,0 L.7,9.2 L3.85,9.2'/>
+      <text x="4" y="13" style='fill:#b0880d;stroke-width:0;font-size:14px;'>[ ]</text>
+    </g>
+  </symbol>
+  <symbol id='view' width="13" height="13">
+    <g transform='scale(0.81)'>
+      <path style="fill:#999999;stroke:none;" d="M3 2.5A1.5 1.5 0 0 1 4.5 1h1A1.5 1.5 0 0 1 7 2.5V5h2V2.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5v2.382a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V14.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 14.5v-3a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5v3A1.5 1.5 0 0 1 5.5 16h-3A1.5 1.5 0 0 1 1 14.5V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882zM4.5 2a.5.5 0 0 0-.5.5V3h2v-.5a.5.5 0 0 0-.5-.5zM6 4H4v.882a1.5 1.5 0 0 1-.83 1.342l-.894.447A.5.5 0 0 0 2 7.118V13h4v-1.293l-.854-.853A.5.5 0 0 1 5 10.5v-1A1.5 1.5 0 0 1 6.5 8h3A1.5 1.5 0 0 1 11 9.5v1a.5.5 0 0 1-.146.354l-.854.853V13h4V7.118a.5.5 0 0 0-.276-.447l-.895-.447A1.5 1.5 0 0 1 12 4.882V4h-2v1.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zm4-1h2v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm4 11h-4v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-8 0H2v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5z"/>
+    </g>
+  </symbol>
+  <symbol id='logo' width="100" height="100" style="filter:url(#shadow);">
+    <path style='stroke:none;fill:#5d5d5d' d='M2.41,6.80 17.39,0.35 26.83,7.21 28.32,24.45 12.62,29.77 1.74,23.96'/>
+    <path style='stroke:none;fill:#efefef' d='M 2.21, 6.45  9.36, 3.49  9.42,11.63  2.04,14.42'/>
+    <path style='stroke:none;fill:#efefef' d='M10.23, 3.14 17.39, 0.17 17.68, 8.59 10.29,11.28'/>
+    <path style='stroke:none;fill:#d2d2d2' d='M17.44, 0.17 21.59, 3.55 22.36,11.43 17.76,8.63'/>
+    <path style='stroke:none;fill:#d2d2d2' d='M22.67, 4.33 26.98, 7.06 27.65,14.77 23.20,11.77'/>
+    <path style='stroke:none;fill:#efefef' d='M1.89,15.58  9.39,12.65  9.48,21.14  1.57,24.10'/>
+    <path style='stroke:none;fill:#17afde' d='M10.38,12.36 17.70, 9.51 18.11,18.37 10.32 20.96'/>
+    <path style='stroke:none;fill:#1389ad' d='M17.73, 9.59 22.41,12.47 22.82,21.14 18.05,18.34'/>
+    <path style='stroke:none;fill:#d2d2d2' d='M23.26,12.94 27.62,15.70 28.42,24.54 23.69,21.60'/>
+    <path style='stroke:none;fill:#828282' d='M1.57,24.19  9.45,21.22 14.30,24.40  6.80,26.80'/>
+    <path style='stroke:none;fill:#0c485c' d='M10.47,20.90 18.11,18.32 22.82,21.19 15.20,23.81'/>
+    <path style='stroke:none;fill:#828282' d='M23.69,21.63 28.32,24.65 20.87,27.07 15.84,24.30'/>
+    <path style='stroke:none;fill:#828282' d='M14.94,24.68 19.80,27.41 12.59,29.97  7.73,27.21'/>
+  </symbol>
+    <symbol id="bulb" viewBox="0 0 24 24">
+      <rect x="10" y="16" width="4" height="6" rx="1.5" ry="1.5" style='fill:#c4ae85;stroke:#c3ad44;stroke-width:0.3;stroke-linecap:round;stroke-linejoin:round;filter:url(#shadow);' />
+      <circle cx="12" cy="12" r="5" style='fill:#fff9c1;stroke:#c3ad44;stroke-width:0.3;filter:url(#shadow);'/>
+    </symbol>
+</defs>
+
+<defs>  <marker id='ZeroMore' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <circle cx='2.38' cy='4.75' r='2.38' style='stroke-width:1;' />
+    <path d='M 9.50,0.00 L 4.75,4.75 L 9.50,9.50' style='stroke-width:1;'/>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='ZeroOne' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+    <circle cx='2.38' cy='4.75' r='2.38' style='stroke-width:1;' />
+    <path d='M 4.75,0.00 L 4.75, 9.50 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='OneMore' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+    <path d='M 4.75,0.00 L 4.75, 9.50 z' style='stroke-width:1;'/>
+    <path d='M 9.50,0.00 L 4.75,4.75 L 9.50,9.50' style='stroke-width:1;'/>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='One' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+    <path d='M 4.75,0.00 L 4.75, 9.50 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='Range' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='Arrow' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 4.750,2.375 L 9.500,4.750 L 4.750,7.125 z' style='stroke-width:1;' class='filled'/>
+  </marker>
+  <linearGradient id='tbg_C7F4BE' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#CBEEC5' /> 
+     <stop offset='100%' stop-color='#EDF7EB' /> 
+  </linearGradient>
+  <linearGradient id='tbg_F4DDBE' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#EEDCC5' /> 
+     <stop offset='100%' stop-color='#F7F1EB' /> 
+  </linearGradient>
+  <linearGradient id='tbg_BED3F4' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#C5D4EE' /> 
+     <stop offset='100%' stop-color='#EBEFF7' /> 
+  </linearGradient>
+  <linearGradient id='tbg_BEBEF4' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#C5C5EE' /> 
+     <stop offset='100%' stop-color='#EBEBF7' /> 
+  </linearGradient>
+  <linearGradient id='tbg_D1BEF4' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#D3C5EE' /> 
+     <stop offset='100%' stop-color='#EFEBF7' /> 
+  </linearGradient>
+</defs>
+
+<!-- == Shape Colors == -->
+<!-- == Desktop == -->
+<rect x='0' y='0' width='1919' height='1117' rx='9' ry='9' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
+
+<!-- == Legend == -->
+<g transform='translate(10,10)'>
+  <rect x='10' y='10' width='360' height='70' rx='7' ry='7' class='legend'/> 
+  <use x='349' y='28' xlink:href='#bulb' width='24' height='24'><title>Read column and table comments by hovering the columns and tables.
+Zoom with CTRL+whell mouse button, pan by dragging the diagram with the right-mouse button</title></use>
+  <use x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >Main Diagram</text> 
+  <text x='57' y='47' class='legendSubTitle'><tspan>Read schema comments as mouse-over tooltips</tspan></text>
+  <a xlink:href='https://dbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>DbSchema.com © 2025-05-23 Wise Coders<title>DbSchema is an universal database designer.
+DbSchema has a free Community Edition.</title></tspan></text></a> 
+</g>
+
+<g transform='translate(0,110)'>
+<!-- == Fk 'employees_fk_employees_employee_benefits' == -->
+<path id='employees_fk_employees_employee_benefits'  onmouseover="hghl(['employees_fk_employees_employee_benefits','company.employees.employee_id','company.employee_benefits.employee_id'])" onmouseout="uhghl(['employees_fk_employees_employee_benefits','company.employees.employee_id','company.employee_benefits.employee_id'])" transform='translate(9,0)' class='unhighlight' d='M 646,266L 646,304' >
+	<title>&#x1F517;  Foreign Key fk_employees_employee_benefits
+employees ref employee_benefits ( employee_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 646,266L 646,304' ><title>&#x1F517;  Foreign Key fk_employees_employee_benefits
+employees ref employee_benefits ( employee_id )</title></path>
+<text x='658' y='266' transform='rotate(90 658,266)' class='relName'>employee&#95;id</text>
+<!-- == Fk 'employees_fk_employees_employee_projects' == -->
+<path id='employees_fk_employees_employee_projects'  onmouseover="hghl(['employees_fk_employees_employee_projects','company.employees.employee_id','company.employee_projects.project_id'])" onmouseout="uhghl(['employees_fk_employees_employee_projects','company.employees.employee_id','company.employee_projects.project_id'])" transform='translate(9,0)' class='unhighlight' d='M 741,76L 779,76' >
+	<title>&#x1F517;  Foreign Key fk_employees_employee_projects
+employees ref employee_projects ( employee_id -&gt; project_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 741,76L 779,76' ><title>&#x1F517;  Foreign Key fk_employees_employee_projects
+employees ref employee_projects ( employee_id -&gt; project_id )</title></path>
+<text x='750' y='70' transform='rotate(0 750,70)' class='relName'>employee&#95;id</text>
+<!-- == Fk 'employees_fk_employees_salaries' == -->
+<path id='employees_fk_employees_salaries'  onmouseover="hghl(['employees_fk_employees_salaries','company.employees.salary','company.salaries.salary'])" onmouseout="uhghl(['employees_fk_employees_salaries','company.employees.salary','company.salaries.salary'])" transform='translate(9,0)' class='unhighlight' d='M 532,76L 475,76' >
+	<title>&#x1F517;  Foreign Key fk_employees_salaries
+employees ref salaries ( salary )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'  class='dotted '  d='M 532,76L 475,76' ><title>&#x1F517;  Foreign Key fk_employees_salaries
+employees ref salaries ( salary )</title></path>
+<text x='509' y='70' transform='rotate(0 509,70)' class='relName'>salary</text>
+<!-- == Fk 'marketing_campaigns_fk_marketing_campaigns_campaign_results' == -->
+<path id='marketing_campaigns_fk_marketing_campaigns_campaign_results'  onmouseover="hghl(['marketing_campaigns_fk_marketing_campaigns_campaign_results','company.marketing_campaigns.campaign_id','company.campaign_results.campaign_id'])" onmouseout="uhghl(['marketing_campaigns_fk_marketing_campaigns_campaign_results','company.marketing_campaigns.campaign_id','company.campaign_results.campaign_id'])" transform='translate(9,0)' class='unhighlight' d='M 285,589L 266,589' >
+	<title>&#x1F517;  Foreign Key fk_marketing_campaigns_campaign_results
+marketing_campaigns ref campaign_results ( campaign_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 285,589L 266,589' ><title>&#x1F517;  Foreign Key fk_marketing_campaigns_campaign_results
+marketing_campaigns ref campaign_results ( campaign_id )</title></path>
+<text x='222' y='583' transform='rotate(0 222,583)' class='relName'>campaign&#95;id</text>
+<!-- == Fk 'salaries_fk_salaries_customers' == -->
+<path id='salaries_fk_salaries_customers'  onmouseover="hghl(['salaries_fk_salaries_customers','company.salaries.salary_id','company.customers.customer_id'])" onmouseout="uhghl(['salaries_fk_salaries_customers','company.salaries.salary_id','company.customers.customer_id'])" transform='translate(9,0)' class='unhighlight' d='M 456,228L 456,275Q 456,285 465,285L 579,285Q 589,285 589,294L 589,560Q 589,570 598,570L 608,570' >
+	<title>&#x1F517;  Foreign Key fk_salaries_customers
+salaries ref customers ( salary_id -&gt; customer_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 456,228L 456,275Q 456,285 465,285L 579,285Q 589,285 589,294L 589,560Q 589,570 598,570L 608,570' ><title>&#x1F517;  Foreign Key fk_salaries_customers
+salaries ref customers ( salary_id -&gt; customer_id )</title></path>
+<text x='468' y='228' transform='rotate(90 468,228)' class='relName'>salary&#95;id</text>
+<!-- == Fk 'salaries_fk_salaries_payment_methods' == -->
+<path id='salaries_fk_salaries_payment_methods'  onmouseover="hghl(['salaries_fk_salaries_payment_methods','company.salaries.salary_id','company.payment_methods.payment_method_id'])" onmouseout="uhghl(['salaries_fk_salaries_payment_methods','company.salaries.salary_id','company.payment_methods.payment_method_id'])" transform='translate(9,0)' class='unhighlight' d='M 323,228L 323,275Q 323,285 313,285L 275,285Q 266,285 266,294L 266,304' >
+	<title>&#x1F517;  Foreign Key fk_salaries_payment_methods
+salaries ref payment_methods ( salary_id -&gt; payment_method_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 323,228L 323,275Q 323,285 313,285L 275,285Q 266,285 266,294L 266,304' ><title>&#x1F517;  Foreign Key fk_salaries_payment_methods
+salaries ref payment_methods ( salary_id -&gt; payment_method_id )</title></path>
+<text x='335' y='228' transform='rotate(90 335,228)' class='relName'>salary&#95;id</text>
+<!-- == Fk 'contracts_fk_contracts_salaries' == -->
+<path id='contracts_fk_contracts_salaries'  onmouseover="hghl(['contracts_fk_contracts_salaries','company.contracts.start_date','company.salaries.effective_date'])" onmouseout="uhghl(['contracts_fk_contracts_salaries','company.contracts.start_date','company.salaries.effective_date'])" transform='translate(9,0)' class='unhighlight' d='M 266,76L 285,76' >
+	<title>&#x1F517;  Foreign Key fk_contracts_salaries
+contracts ref salaries ( start_date -&gt; effective_date )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 266,76L 285,76' ><title>&#x1F517;  Foreign Key fk_contracts_salaries
+contracts ref salaries ( start_date -&gt; effective_date )</title></path>
+<text x='275' y='70' transform='rotate(0 275,70)' class='relName'>start&#95;date</text>
+<!-- == Fk 'projects_fk_projects_employee_projects' == -->
+<path id='projects_fk_projects_employee_projects'  onmouseover="hghl(['projects_fk_projects_employee_projects','company.projects.project_id','company.employee_projects.project_id'])" onmouseout="uhghl(['projects_fk_projects_employee_projects','company.projects.project_id','company.employee_projects.project_id'])" transform='translate(9,0)' class='unhighlight' d='M 1045,76L 950,76' >
+	<title>&#x1F517;  Foreign Key fk_projects_employee_projects
+projects ref employee_projects ( project_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 1045,76L 950,76' ><title>&#x1F517;  Foreign Key fk_projects_employee_projects
+projects ref employee_projects ( project_id )</title></path>
+<text x='998' y='70' transform='rotate(0 998,70)' class='relName'>project&#95;id</text>
+<!-- == Fk 'order_details_fk_order_details_shipping_details' == -->
+<path id='order_details_fk_order_details_shipping_details'  onmouseover="hghl(['order_details_fk_order_details_shipping_details','company.order_details.description','company.shipping_details.shipping_id'])" onmouseout="uhghl(['order_details_fk_order_details_shipping_details','company.order_details.description','company.shipping_details.shipping_id'])" transform='translate(9,0)' class='unhighlight' d='M 1406,209L 1406,275Q 1406,285 1396,285L 1320,285Q 1311,285 1311,294L 1311,579Q 1311,589 1320,589L 1368,589' >
+	<title>&#x1F517;  Foreign Key fk_order_details_shipping_details
+order_details ref shipping_details ( description -&gt; shipping_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 1406,209L 1406,275Q 1406,285 1396,285L 1320,285Q 1311,285 1311,294L 1311,579Q 1311,589 1320,589L 1368,589' ><title>&#x1F517;  Foreign Key fk_order_details_shipping_details
+order_details ref shipping_details ( description -&gt; shipping_id )</title></path>
+<text x='1418' y='209' transform='rotate(90 1418,209)' class='relName'>description</text>
+<!-- == Fk 'payment_methods_fk_payment_methods_customers' == -->
+<path id='payment_methods_fk_payment_methods_customers'  onmouseover="hghl(['payment_methods_fk_payment_methods_customers','company.payment_methods.customer_id','company.customers.customer_id'])" onmouseout="uhghl(['payment_methods_fk_payment_methods_customers','company.payment_methods.customer_id','company.customers.customer_id'])" transform='translate(9,0)' class='unhighlight' d='M 266,475L 266,522Q 266,532 275,532L 636,532Q 646,532 646,541L 646,551' >
+	<title>&#x1F517;  Foreign Key fk_payment_methods_customers
+payment_methods ref customers ( customer_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 266,475L 266,522Q 266,532 275,532L 636,532Q 646,532 646,541L 646,551' ><title>&#x1F517;  Foreign Key fk_payment_methods_customers
+payment_methods ref customers ( customer_id )</title></path>
+<text x='278' y='475' transform='rotate(90 278,475)' class='relName'>customer&#95;id</text>
+<!-- == Fk 'attendance_fk_attendance_employees' == -->
+<path id='attendance_fk_attendance_employees'  onmouseover="hghl(['attendance_fk_attendance_employees','company.attendance.employee_id','company.employees.employee_id'])" onmouseout="uhghl(['attendance_fk_attendance_employees','company.attendance.employee_id','company.employees.employee_id'])" transform='translate(9,0)' class='unhighlight' d='M 513,304L 513,237Q 513,228 522,228L 532,228' >
+	<title>&#x1F517;  Foreign Key fk_attendance_employees
+attendance ref employees ( employee_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 513,304L 513,237Q 513,228 522,228L 532,228' ><title>&#x1F517;  Foreign Key fk_attendance_employees
+attendance ref employees ( employee_id )</title></path>
+<text x='516' y='301' transform='rotate(270 516,301)' class='relName'>employee&#95;id</text>
+<!-- == Fk 'reviews_fk_reviews_customers' == -->
+<path id='reviews_fk_reviews_customers'  onmouseover="hghl(['reviews_fk_reviews_customers','company.reviews.customer_id','company.customers.customer_id'])" onmouseout="uhghl(['reviews_fk_reviews_customers','company.reviews.customer_id','company.customers.customer_id'])" transform='translate(9,0)' class='unhighlight' d='M 475,760L 475,750Q 475,741 484,741L 579,741Q 589,741 589,731L 589,731Q 589,722 598,722L 608,722' >
+	<title>&#x1F517;  Foreign Key fk_reviews_customers
+reviews ref customers ( customer_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 475,760L 475,750Q 475,741 484,741L 579,741Q 589,741 589,731L 589,731Q 589,722 598,722L 608,722' ><title>&#x1F517;  Foreign Key fk_reviews_customers
+reviews ref customers ( customer_id )</title></path>
+<text x='478' y='757' transform='rotate(270 478,757)' class='relName'>customer&#95;id</text>
+<!-- == Fk 'sales_fk_sales_customers' == -->
+<path id='sales_fk_sales_customers'  onmouseover="hghl(['sales_fk_sales_customers','company.sales.customer_id','company.customers.customer_id'])" onmouseout="uhghl(['sales_fk_sales_customers','company.sales.customer_id','company.customers.customer_id'])" transform='translate(9,0)' class='unhighlight' d='M 646,779L 646,760' >
+	<title>&#x1F517;  Foreign Key fk_sales_customers
+sales ref customers ( customer_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 646,779L 646,760' ><title>&#x1F517;  Foreign Key fk_sales_customers
+sales ref customers ( customer_id )</title></path>
+<text x='649' y='776' transform='rotate(270 649,776)' class='relName'>customer&#95;id</text>
+<!-- == Fk 'suppliers_fk_suppliers_shipping' == -->
+<path id='suppliers_fk_suppliers_shipping'  onmouseover="hghl(['suppliers_fk_suppliers_shipping','company.suppliers.supplier_id','company.shipping.order_id'])" onmouseout="uhghl(['suppliers_fk_suppliers_shipping','company.suppliers.supplier_id','company.shipping.order_id'])" transform='translate(9,0)' class='unhighlight' d='M 1653,304L 1653,247' >
+	<title>&#x1F517;  Foreign Key fk_suppliers_shipping
+suppliers ref shipping ( supplier_id -&gt; order_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 1653,304L 1653,247' ><title>&#x1F517;  Foreign Key fk_suppliers_shipping
+suppliers ref shipping ( supplier_id -&gt; order_id )</title></path>
+<text x='1656' y='301' transform='rotate(270 1656,301)' class='relName'>supplier&#95;id</text>
+<!-- == Fk 'order_items_fk_order_items_orders' == -->
+<path id='order_items_fk_order_items_orders'  onmouseover="hghl(['order_items_fk_order_items_orders','company.order_items.order_id','company.orders.order_id'])" onmouseout="uhghl(['order_items_fk_order_items_orders','company.order_items.order_id','company.orders.order_id'])" transform='translate(9,0)' class='unhighlight' d='M 1197,798L 1301,798Q 1311,798 1311,788L 1311,731Q 1311,722 1320,722L 1529,722Q 1539,722 1539,712L 1539,494' >
+	<title>&#x1F517;  Foreign Key fk_order_items_orders
+order_items ref orders ( order_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 1197,798L 1301,798Q 1311,798 1311,788L 1311,731Q 1311,722 1320,722L 1529,722Q 1539,722 1539,712L 1539,494' ><title>&#x1F517;  Foreign Key fk_order_items_orders
+order_items ref orders ( order_id )</title></path>
+<text x='1206' y='792' transform='rotate(0 1206,792)' class='relName'>order&#95;id</text>
+<!-- == Fk 'transactions_fk_transactions_orders' == -->
+<path id='transactions_fk_transactions_orders'  onmouseover="hghl(['transactions_fk_transactions_orders','company.transactions.order_id','company.orders.order_id'])" onmouseout="uhghl(['transactions_fk_transactions_orders','company.transactions.order_id','company.orders.order_id'])" transform='translate(9,0)' class='unhighlight' d='M 1216,570L 1216,522Q 1216,513 1225,513L 1358,513Q 1368,513 1368,503L 1368,494' >
+	<title>&#x1F517;  Foreign Key fk_transactions_orders
+transactions ref orders ( order_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 1216,570L 1216,522Q 1216,513 1225,513L 1358,513Q 1368,513 1368,503L 1368,494' ><title>&#x1F517;  Foreign Key fk_transactions_orders
+transactions ref orders ( order_id )</title></path>
+<text x='1219' y='567' transform='rotate(270 1219,567)' class='relName'>order&#95;id</text>
+<!-- == Fk 'shipping_details_fk_shipping_details_shipping' == -->
+<path id='shipping_details_fk_shipping_details_shipping'  onmouseover="hghl(['shipping_details_fk_shipping_details_shipping','company.shipping_details.shipping_id','company.shipping.shipping_id'])" onmouseout="uhghl(['shipping_details_fk_shipping_details_shipping','company.shipping_details.shipping_id','company.shipping.shipping_id'])" transform='translate(9,0)' class='unhighlight' d='M 1501,570L 1501,522Q 1501,513 1510,513L 1586,513Q 1596,513 1596,503L 1596,218Q 1596,209 1605,209L 1615,209' >
+	<title>&#x1F517;  Foreign Key fk_shipping_details_shipping
+shipping_details ref shipping ( shipping_id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroOne)' marker-end='url(#Arrow)'    d='M 1501,570L 1501,522Q 1501,513 1510,513L 1586,513Q 1596,513 1596,503L 1596,218Q 1596,209 1605,209L 1615,209' ><title>&#x1F517;  Foreign Key fk_shipping_details_shipping
+shipping_details ref shipping ( shipping_id )</title></path>
+<text x='1504' y='567' transform='rotate(270 1504,567)' class='relName'>shipping&#95;id</text>
+<!-- == Table 'employee_projects' == -->
+<rect id='depict_company&#46;employee&#95;projects' class='entity' style='stroke:#F9FCF9' x='798' y='48' width='152' height='152' rx='4' ry='4' />
+<rect x='798' y='48' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='798' y='52' width='152' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.employee_projects'><text id='depict&#45;company&#46;employee&#95;projects' x='817' y='69' class='tableHeader' style='fill:#424841;'>employee&#95;projects</text><title>Table company.employee_projects</title></a>
+  <use x='799' y='91' xlink:href='#nn'/><use x='800' y='90' xlink:href='#pk'><title>&#x1F511;  Pk pk_employee_projects ( employee_id, project_id ) </title></use><a xlink:href='#company.employee_projects.employee_id'><text id='company&#46;employee&#95;projects&#46;employee&#95;id' x='820' y='103' class='colPk'>employee&#95;id</text><title>&#10697;  employee_id
+     * int</title></a>
+<text x='931' y='104' class='dataType' style='fill:#B4C0B2;'>INT</text>  <use x='799' y='110' xlink:href='#nn'/><use x='800' y='109' xlink:href='#pk'><title>&#x1F511;  Pk pk_employee_projects ( employee_id, project_id ) &#x1F50D;  Unq unq_employee_projects_project_id ( project_id ) </title></use><a xlink:href='#company.employee_projects.project_id'><text id='company&#46;employee&#95;projects&#46;project&#95;id' x='820' y='122' onmouseover="hghl(['employees_fk_employees_employee_projects','company.employees.employee_id','projects_fk_projects_employee_projects','company.projects.project_id'])" onmouseout="uhghl(['employees_fk_employees_employee_projects','company.employees.employee_id','projects_fk_projects_employee_projects','company.projects.project_id'])" class='colPk'>project&#95;id</text><title>&#10697;  project_id
+     * int
+ &#8601; employees( project_id )
+ &#8601; projects( project_id )</title></a>
+<text x='931' y='123' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.employee_projects.project_id'><use x='936' y='109' xlink:href='#ref'/><title>&#x1F517;  Referred by employees ( employee_id -&gt; project_id ) 
+Referred by projects ( project_id ) </title></a>
+  <a xlink:href='#company.employee_projects.role'><text id='company&#46;employee&#95;projects&#46;role' x='820' y='141'>role</text><title>&#10697;  role
+     varchar(100)</title></a>
+<text x='931' y='142' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.employee_projects.start_date'><text id='company&#46;employee&#95;projects&#46;start&#95;date' x='820' y='160'>start&#95;date</text><title>&#10697;  start_date
+     date</title></a>
+<text x='931' y='161' class='dataType' style='fill:#B4C0B2;'>DATE</text>  <a xlink:href='#company.employee_projects.end_date'><text id='company&#46;employee&#95;projects&#46;end&#95;date' x='820' y='179'>end&#95;date</text><title>&#10697;  end_date
+     date</title></a>
+<text x='931' y='180' class='dataType' style='fill:#B4C0B2;'>DATE</text>
+<!-- == Table 'employees' == -->
+<rect id='depict_company&#46;employees' class='entity' style='stroke:#F9FCF9' x='551' y='48' width='190' height='209' rx='4' ry='4' />
+<rect x='551' y='48' width='190' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='551' y='52' width='190' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.employees'><text id='depict&#45;company&#46;employees' x='612' y='69' class='tableHeader' style='fill:#424841;'>employees</text><title>Table company.employees
+ ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      This field contains personal informations</title></a>
+  <use x='552' y='91' xlink:href='#nn'/><use x='553' y='90' xlink:href='#pk'><title>&#x1F511;  Pk pk_employees ( employee_id ) </title></use><a xlink:href='#company.employees.employee_id'><text id='company&#46;employees&#46;employee&#95;id' x='573' y='103' onmouseover="hghl(['employees_fk_employees_employee_benefits','company.employee_benefits.employee_id','employees_fk_employees_employee_projects','company.employee_projects.project_id','attendance_fk_attendance_employees','company.attendance.employee_id'])" onmouseout="uhghl(['employees_fk_employees_employee_benefits','company.employee_benefits.employee_id','employees_fk_employees_employee_projects','company.employee_projects.project_id','attendance_fk_attendance_employees','company.attendance.employee_id'])" class='colPk'>employee&#95;id</text><title>&#10697;  employee_id
+     * int
+ &#8599; employees( employee_id )
+ &#8599; employees( project_id )
+ &#8601; attendance( employee_id )</title></a>
+<text x='722' y='104' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.employees.employee_id'><use x='727' y='90' xlink:href='#fk'/><title>&#x1F517;  References employee_benefits ( employee_id ) 
+References employee_projects ( employee_id -&gt; project_id ) 
+Referred by attendance ( employee_id ) </title></a>
+  <use x='553' y='109' xlink:href='#unq'><title>&#x1F50D;  Unq unq_employees_first_name ( first_name ) </title></use><a xlink:href='#company.employees.first_name'><text id='company&#46;employees&#46;first&#95;name' x='573' y='122'>first&#95;name</text><title>&#10697;  first_name
+     varchar(50)</title></a>
+<text x='722' y='123' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.employees.last_name'><text id='company&#46;employees&#46;last&#95;name' x='573' y='141'>last&#95;name</text><title>&#10697;  last_name
+     varchar(50)</title></a>
+<text x='722' y='142' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.employees.email'><text id='company&#46;employees&#46;email' x='573' y='160'>email</text><title>&#10697;  email
+     varchar(100)</title></a>
+<text x='722' y='161' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.employees.hire_date'><text id='company&#46;employees&#46;hire&#95;date' x='573' y='179'>hire&#95;date</text><title>&#10697;  hire_date
+     date</title></a>
+<text x='722' y='180' class='dataType' style='fill:#B4C0B2;'>DATE</text>  <use x='553' y='185' xlink:href='#unq'><title>&#x1F50D;  Unq unq_employees_salary ( salary ) </title></use><a xlink:href='#company.employees.salary'><text id='company&#46;employees&#46;salary' x='573' y='198' onmouseover="hghl(['employees_fk_employees_salaries','company.salaries.salary'])" onmouseout="uhghl(['employees_fk_employees_salaries','company.salaries.salary'])">salary</text><title>&#10697;  salary
+     decimal(10,2)
+ &#8599; employees( salary )
+ ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      This column contains personal informations.</title></a>
+<text x='722' y='199' class='dataType' style='fill:#B4C0B2;'>DECIMAL&#40;10&#44;2&#41;</text><a xlink:href='#company.employees.salary'><use x='727' y='185' xlink:href='#fk'/><title>&#x1F517;  References salaries ( salary ) </title></a>
+  <a xlink:href='#company.employees.department_id'><text id='company&#46;employees&#46;department&#95;id' x='573' y='217'>department&#95;id</text><title>&#10697;  department_id
+     int</title></a>
+<text x='722' y='218' class='dataType' style='fill:#B4C0B2;'>INT</text>  <a xlink:href='#company.employees.manager_id'><text id='company&#46;employees&#46;manager&#95;id' x='573' y='236'>manager&#95;id</text><title>&#10697;  manager_id
+     int</title></a>
+<text x='722' y='237' class='dataType' style='fill:#B4C0B2;'>INT</text>
+<!-- == Table 'marketing_campaigns' == -->
+<rect id='depict_company&#46;marketing&#95;campaigns' class='entity' style='stroke:#FCFAF9' x='304' y='561' width='228' height='152' rx='4' ry='4' />
+<rect x='304' y='561' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#EDAF5D'/>
+<rect x='304' y='565' width='228' height='29' style='stroke-width:0;fill:#FCFAF9'/>
+<a xlink:href='#company.marketing_campaigns'><text id='depict&#45;company&#46;marketing&#95;campaigns' x='352' y='582' class='tableHeader' style='fill:#484541;'>marketing&#95;campaigns</text><title>Table company.marketing_campaigns</title></a>
+  <use x='305' y='604' xlink:href='#nn'/><use x='306' y='603' xlink:href='#pk'><title>&#x1F511;  Pk pk_marketing_campaigns ( campaign_id ) </title></use><a xlink:href='#company.marketing_campaigns.campaign_id'><text id='company&#46;marketing&#95;campaigns&#46;campaign&#95;id' x='326' y='616' onmouseover="hghl(['marketing_campaigns_fk_marketing_campaigns_campaign_results','company.campaign_results.campaign_id'])" onmouseout="uhghl(['marketing_campaigns_fk_marketing_campaigns_campaign_results','company.campaign_results.campaign_id'])" class='colPk'>campaign&#95;id</text><title>&#10697;  campaign_id
+     * int
+ &#8599; marketing_campaigns( campaign_id )</title></a>
+<text x='513' y='617' class='dataType' style='fill:#C0BAB2;'>INT</text><a xlink:href='#company.marketing_campaigns.campaign_id'><use x='518' y='603' xlink:href='#fk'/><title>&#x1F517;  References campaign_results ( campaign_id ) </title></a>
+  <a xlink:href='#company.marketing_campaigns.campaign_name'><text id='company&#46;marketing&#95;campaigns&#46;campaign&#95;name' x='326' y='635'>campaign&#95;name</text><title>&#10697;  campaign_name
+     varchar(100)</title></a>
+<text x='513' y='636' class='dataType' style='fill:#C0BAB2;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.marketing_campaigns.start_date'><text id='company&#46;marketing&#95;campaigns&#46;start&#95;date' x='326' y='654'>start&#95;date</text><title>&#10697;  start_date
+     date</title></a>
+<text x='513' y='655' class='dataType' style='fill:#C0BAB2;'>DATE</text>  <a xlink:href='#company.marketing_campaigns.end_date'><text id='company&#46;marketing&#95;campaigns&#46;end&#95;date' x='326' y='673'>end&#95;date</text><title>&#10697;  end_date
+     date</title></a>
+<text x='513' y='674' class='dataType' style='fill:#C0BAB2;'>DATE</text>  <a xlink:href='#company.marketing_campaigns.budget'><text id='company&#46;marketing&#95;campaigns&#46;budget' x='326' y='692'>budget</text><title>&#10697;  budget
+     decimal(15,2)</title></a>
+<text x='513' y='693' class='dataType' style='fill:#C0BAB2;'>DECIMAL&#40;15&#44;2&#41;</text>
+<!-- == Table 'salaries' == -->
+<rect id='depict_company&#46;salaries' class='entity' style='stroke:#F9FCF9' x='304' y='48' width='171' height='171' rx='4' ry='4' />
+<rect x='304' y='48' width='171' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='304' y='52' width='171' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.salaries'><text id='depict&#45;company&#46;salaries' x='365' y='69' class='tableHeader' style='fill:#424841;'>salaries</text><title>Table company.salaries</title></a>
+  <use x='305' y='91' xlink:href='#nn'/><use x='306' y='90' xlink:href='#pk'><title>&#x1F511;  Pk pk_salaries ( salary_id ) </title></use><a xlink:href='#company.salaries.salary_id'><text id='company&#46;salaries&#46;salary&#95;id' x='326' y='103' onmouseover="hghl(['salaries_fk_salaries_customers','company.customers.customer_id','salaries_fk_salaries_payment_methods','company.payment_methods.payment_method_id'])" onmouseout="uhghl(['salaries_fk_salaries_customers','company.customers.customer_id','salaries_fk_salaries_payment_methods','company.payment_methods.payment_method_id'])" class='colPk'>salary&#95;id</text><title>&#10697;  salary_id
+     * int
+ &#8599; salaries( customer_id )
+ &#8599; salaries( payment_method_id )</title></a>
+<text x='456' y='104' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.salaries.salary_id'><use x='461' y='90' xlink:href='#fk'/><title>&#x1F517;  References customers ( salary_id -&gt; customer_id ) 
+References payment_methods ( salary_id -&gt; payment_method_id ) </title></a>
+  <use x='306' y='109' xlink:href='#unq'><title>&#x1F50D;  Unq unq_salaries_employee_id ( employee_id ) </title></use><a xlink:href='#company.salaries.employee_id'><text id='company&#46;salaries&#46;employee&#95;id' x='326' y='122'>employee&#95;id</text><title>&#10697;  employee_id
+     int</title></a>
+<text x='456' y='123' class='dataType' style='fill:#B4C0B2;'>INT</text>  <use x='306' y='128' xlink:href='#unq'><title>&#x1F50D;  Unq unq_salaries_salary ( salary ) </title></use><a xlink:href='#company.salaries.salary'><text id='company&#46;salaries&#46;salary' x='326' y='141' onmouseover="hghl(['employees_fk_employees_salaries','company.employees.salary'])" onmouseout="uhghl(['employees_fk_employees_salaries','company.employees.salary'])">salary</text><title>&#10697;  salary
+     decimal(10,2)
+ &#8601; employees( salary )</title></a>
+<text x='456' y='142' class='dataType' style='fill:#B4C0B2;'>DECIMAL&#40;10&#44;2&#41;</text><a xlink:href='#company.salaries.salary'><use x='461' y='128' xlink:href='#ref'/><title>&#x1F517;  Referred by employees ( salary ) </title></a>
+  <use x='306' y='147' xlink:href='#unq'><title>&#x1F50D;  Unq unq_salaries_effective_date ( effective_date ) </title></use><a xlink:href='#company.salaries.effective_date'><text id='company&#46;salaries&#46;effective&#95;date' x='326' y='160' onmouseover="hghl(['contracts_fk_contracts_salaries','company.contracts.start_date'])" onmouseout="uhghl(['contracts_fk_contracts_salaries','company.contracts.start_date'])">effective&#95;date</text><title>&#10697;  effective_date
+     date
+ &#8601; contracts( effective_date )</title></a>
+<text x='456' y='161' class='dataType' style='fill:#B4C0B2;'>DATE</text><a xlink:href='#company.salaries.effective_date'><use x='461' y='147' xlink:href='#ref'/><title>&#x1F517;  Referred by contracts ( start_date -&gt; effective_date ) </title></a>
+  <a xlink:href='#company.salaries.bonus'><text id='company&#46;salaries&#46;bonus' x='326' y='179'>bonus</text><title>&#10697;  bonus
+     decimal(10,2)</title></a>
+<text x='456' y='180' class='dataType' style='fill:#B4C0B2;'>DECIMAL&#40;10&#44;2&#41;</text>  <use x='306' y='185' xlink:href='#unq'><title>&#x1F50D;  Unq unq_salaries_customer_id ( customer_id ) </title></use><a xlink:href='#company.salaries.customer_id'><text id='company&#46;salaries&#46;customer&#95;id' x='326' y='198'>customer&#95;id</text><title>&#10697;  customer_id
+     int</title></a>
+<text x='456' y='199' class='dataType' style='fill:#B4C0B2;'>INT</text>
+<!-- == Table 'contracts' == -->
+<rect id='depict_company&#46;contracts' class='entity' style='stroke:#F9FCF9' x='57' y='48' width='209' height='171' rx='4' ry='4' />
+<rect x='57' y='48' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='57' y='52' width='209' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.contracts'><text id='depict&#45;company&#46;contracts' x='132' y='69' class='tableHeader' style='fill:#424841;'>contracts</text><title>Table company.contracts</title></a>
+  <use x='58' y='91' xlink:href='#nn'/><use x='59' y='90' xlink:href='#pk'><title>&#x1F511;  Pk pk_contracts ( contract_id ) </title></use><a xlink:href='#company.contracts.contract_id'><text id='company&#46;contracts&#46;contract&#95;id' x='79' y='103' class='colPk'>contract&#95;id</text><title>&#10697;  contract_id
+     * int
+ ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      This column contains private informations.</title></a>
+<text x='247' y='104' class='dataType' style='fill:#B4C0B2;'>INT</text>  <use x='59' y='109' xlink:href='#unq'><title>&#x1F50D;  Unq unq_contracts_employee_id ( employee_id ) </title></use><a xlink:href='#company.contracts.employee_id'><text id='company&#46;contracts&#46;employee&#95;id' x='79' y='122'>employee&#95;id</text><title>&#10697;  employee_id
+     int</title></a>
+<text x='247' y='123' class='dataType' style='fill:#B4C0B2;'>INT</text>  <a xlink:href='#company.contracts.contract_type'><text id='company&#46;contracts&#46;contract&#95;type' x='79' y='141'>contract&#95;type</text><title>&#10697;  contract_type
+     varchar(50)</title></a>
+<text x='247' y='142' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;50&#41;</text>  <use x='59' y='147' xlink:href='#idx'><title>&#x1F50D;  fk_contracts_salaries ( start_date ) </title></use><a xlink:href='#company.contracts.start_date'><text id='company&#46;contracts&#46;start&#95;date' x='79' y='160' onmouseover="hghl(['contracts_fk_contracts_salaries','company.salaries.effective_date'])" onmouseout="uhghl(['contracts_fk_contracts_salaries','company.salaries.effective_date'])">start&#95;date</text><title>&#10697;  start_date
+     date
+ &#8599; contracts( effective_date )</title></a>
+<text x='247' y='161' class='dataType' style='fill:#B4C0B2;'>DATE</text><a xlink:href='#company.contracts.start_date'><use x='252' y='147' xlink:href='#fk'/><title>&#x1F517;  References salaries ( start_date -&gt; effective_date ) </title></a>
+  <a xlink:href='#company.contracts.end_date'><text id='company&#46;contracts&#46;end&#95;date' x='79' y='179'>end&#95;date</text><title>&#10697;  end_date
+     date</title></a>
+<text x='247' y='180' class='dataType' style='fill:#B4C0B2;'>DATE</text>  <a xlink:href='#company.contracts.salary'><text id='company&#46;contracts&#46;salary' x='79' y='198'>salary</text><title>&#10697;  salary
+     decimal(10,2)</title></a>
+<text x='247' y='199' class='dataType' style='fill:#B4C0B2;'>DECIMAL&#40;10&#44;2&#41;</text>
+<!-- == Table 'inventory' == -->
+<rect id='depict_company&#46;inventory' class='entity' style='stroke:#F9FAFC' x='1045' y='314' width='247' height='152' rx='4' ry='4' />
+<rect x='1045' y='314' width='247' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='1045' y='318' width='247' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<a xlink:href='#company.inventory'><text id='depict&#45;company&#46;inventory' x='1138' y='335' class='tableHeader' style='fill:#414348;'>inventory</text><title>Table company.inventory</title></a>
+  <use x='1046' y='357' xlink:href='#nn'/><use x='1047' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_inventory ( inventory_id ) </title></use><a xlink:href='#company.inventory.inventory_id'><text id='company&#46;inventory&#46;inventory&#95;id' x='1067' y='369' class='colPk'>inventory&#95;id</text><title>&#10697;  inventory_id
+     * int</title></a>
+<text x='1273' y='370' class='dataType' style='fill:#B2B7C0;'>INT</text>  <use x='1047' y='375' xlink:href='#unq'><title>&#x1F50D;  Unq unq_inventory_product_id ( product_id ) </title></use><a xlink:href='#company.inventory.product_id'><text id='company&#46;inventory&#46;product&#95;id' x='1067' y='388'>product&#95;id</text><title>&#10697;  product_id
+     int</title></a>
+<text x='1273' y='389' class='dataType' style='fill:#B2B7C0;'>INT</text>  <a xlink:href='#company.inventory.warehouse_location'><text id='company&#46;inventory&#46;warehouse&#95;location' x='1067' y='407'>warehouse&#95;location</text><title>&#10697;  warehouse_location
+     varchar(100)</title></a>
+<text x='1273' y='408' class='dataType' style='fill:#B2B7C0;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.inventory.stock_quantity'><text id='company&#46;inventory&#46;stock&#95;quantity' x='1067' y='426'>stock&#95;quantity</text><title>&#10697;  stock_quantity
+     int</title></a>
+<text x='1273' y='427' class='dataType' style='fill:#B2B7C0;'>INT</text>  <a xlink:href='#company.inventory.reorder_level'><text id='company&#46;inventory&#46;reorder&#95;level' x='1067' y='445'>reorder&#95;level</text><title>&#10697;  reorder_level
+     int</title></a>
+<text x='1273' y='446' class='dataType' style='fill:#B2B7C0;'>INT</text>
+<!-- == Table 'projects' == -->
+<rect id='depict_company&#46;projects' class='entity' style='stroke:#F9F9FC' x='1064' y='67' width='209' height='190' rx='4' ry='4' />
+<rect x='1064' y='67' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1064' y='71' width='209' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.projects'><text id='depict&#45;company&#46;projects' x='1142' y='88' class='tableHeader' style='fill:#414148;'>projects</text><title>Table company.projects</title></a>
+  <use x='1065' y='110' xlink:href='#nn'/><use x='1066' y='109' xlink:href='#pk'><title>&#x1F511;  Pk pk_projects ( project_id ) </title></use><a xlink:href='#company.projects.project_id'><text id='company&#46;projects&#46;project&#95;id' x='1086' y='122' onmouseover="hghl(['projects_fk_projects_employee_projects','company.employee_projects.project_id'])" onmouseout="uhghl(['projects_fk_projects_employee_projects','company.employee_projects.project_id'])" class='colPk'>project&#95;id</text><title>&#10697;  project_id
+     * int
+ &#8599; projects( project_id )</title></a>
+<text x='1254' y='123' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.projects.project_id'><use x='1259' y='109' xlink:href='#fk'/><title>&#x1F517;  References employee_projects ( project_id ) </title></a>
+  <a xlink:href='#company.projects.project_name'><text id='company&#46;projects&#46;project&#95;name' x='1086' y='141'>project&#95;name</text><title>&#10697;  project_name
+     varchar(100)</title></a>
+<text x='1254' y='142' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;100&#41;</text>  <use x='1066' y='147' xlink:href='#unq'><title>&#x1F50D;  Unq unq_projects_department_id ( department_id ) </title></use><a xlink:href='#company.projects.department_id'><text id='company&#46;projects&#46;department&#95;id' x='1086' y='160'>department&#95;id</text><title>&#10697;  department_id
+     int</title></a>
+<text x='1254' y='161' class='dataType' style='fill:#B2B2C0;'>INT</text>  <use x='1066' y='166' xlink:href='#unq'><title>&#x1F50D;  Unq unq_projects_start_date ( start_date ) </title></use><a xlink:href='#company.projects.start_date'><text id='company&#46;projects&#46;start&#95;date' x='1086' y='179' onmouseover="hghl(['shipping_details_fk_shipping_details_projects','company.shipping_details.ship_date'])" onmouseout="uhghl(['shipping_details_fk_shipping_details_projects','company.shipping_details.ship_date'])">start&#95;date</text><title>&#10697;  start_date
+     date
+ &#8601; shipping_details( start_date )</title></a>
+<text x='1254' y='180' class='dataType' style='fill:#B2B2C0;'>DATE</text><a xlink:href='#company.projects.start_date'><use x='1259' y='166' xlink:href='#ref'/><title>&#x1F517;  Referred by shipping_details ( ship_date -&gt; start_date ) </title></a>
+  <a xlink:href='#company.projects.end_date'><text id='company&#46;projects&#46;end&#95;date' x='1086' y='198'>end&#95;date</text><title>&#10697;  end_date
+     date</title></a>
+<text x='1254' y='199' class='dataType' style='fill:#B2B2C0;'>DATE</text>  <a xlink:href='#company.projects.budget'><text id='company&#46;projects&#46;budget' x='1086' y='217'>budget</text><title>&#10697;  budget
+     decimal(15,2)</title></a>
+<text x='1254' y='218' class='dataType' style='fill:#B2B2C0;'>DECIMAL&#40;15&#44;2&#41;</text>  <a xlink:href='#company.projects.status'><text id='company&#46;projects&#46;status' x='1086' y='236'>status</text><title>&#10697;  status
+     varchar(50)</title></a>
+<text x='1254' y='237' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;50&#41;</text>
+<!-- == Table 'order_details' == -->
+<rect id='depict_company&#46;order&#95;details' class='entity' style='stroke:#F9F9FC' x='1387' y='67' width='152' height='133' rx='4' ry='4' />
+<rect x='1387' y='67' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1387' y='71' width='152' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.order_details'><text id='depict&#45;company&#46;order&#95;details' x='1423' y='88' class='tableHeader' style='fill:#414148;'>order&#95;details</text><title>Table company.order_details</title></a>
+  <use x='1388' y='110' xlink:href='#nn'/><use x='1389' y='109' xlink:href='#idx'><title>&#x1F50D;  pk_order_details ( order_id ) </title></use><a xlink:href='#company.order_details.order_id'><text id='company&#46;order&#95;details&#46;order&#95;id' x='1409' y='122'>order&#95;id</text><title>&#10697;  order_id
+     * int</title></a>
+<text x='1520' y='123' class='dataType' style='fill:#B2B2C0;'>INT</text>  <a xlink:href='#company.order_details.order_date'><text id='company&#46;order&#95;details&#46;order&#95;date' x='1409' y='141'>order&#95;date</text><title>&#10697;  order_date
+     date</title></a>
+<text x='1520' y='142' class='dataType' style='fill:#B2B2C0;'>DATE</text>  <use x='1389' y='147' xlink:href='#idx'><title>&#x1F50D;  fk_order_details_shipping_details ( description ) </title></use><a xlink:href='#company.order_details.description'><text id='company&#46;order&#95;details&#46;description' x='1409' y='160' onmouseover="hghl(['order_details_fk_order_details_shipping_details','company.shipping_details.shipping_id'])" onmouseout="uhghl(['order_details_fk_order_details_shipping_details','company.shipping_details.shipping_id'])">description</text><title>&#10697;  description
+     int
+ &#8599; order_details( shipping_id )</title></a>
+<text x='1520' y='161' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.order_details.description'><use x='1525' y='147' xlink:href='#fk'/><title>&#x1F517;  References shipping_details ( description -&gt; shipping_id ) </title></a>
+  <a xlink:href='#company.order_details.end_date'><text id='company&#46;order&#95;details&#46;end&#95;date' x='1409' y='179'>end&#95;date</text><title>&#10697;  end_date
+     date default curdate()</title></a>
+<text x='1520' y='180' class='dataType' style='fill:#B2B2C0;'>DATE</text>
+<!-- == Table 'product_price_log' == -->
+<rect id='depict_company&#46;product&#95;price&#95;log' class='entity' style='stroke:#F9FAFC' x='1349' y='770' width='190' height='152' rx='4' ry='4' />
+<rect x='1349' y='770' width='190' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='1349' y='774' width='190' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<a xlink:href='#company.product_price_log'><text id='depict&#45;company&#46;product&#95;price&#95;log' x='1389' y='791' class='tableHeader' style='fill:#414348;'>product&#95;price&#95;log</text><title>Table company.product_price_log</title></a>
+  <use x='1350' y='813' xlink:href='#nn'/><use x='1351' y='812' xlink:href='#pk'><title>&#x1F511;  Pk pk_product_price_log ( log_id ) </title></use><a xlink:href='#company.product_price_log.log_id'><text id='company&#46;product&#95;price&#95;log&#46;log&#95;id' x='1371' y='825' class='colPk'>log&#95;id</text><title>&#10697;  log_id
+     * int</title></a>
+<text x='1520' y='826' class='dataType' style='fill:#B2B7C0;'>INT</text>  <use x='1351' y='831' xlink:href='#unq'><title>&#x1F50D;  Unq unq_product_price_log_product_id ( product_id ) </title></use><a xlink:href='#company.product_price_log.product_id'><text id='company&#46;product&#95;price&#95;log&#46;product&#95;id' x='1371' y='844'>product&#95;id</text><title>&#10697;  product_id
+     int</title></a>
+<text x='1520' y='845' class='dataType' style='fill:#B2B7C0;'>INT</text>  <a xlink:href='#company.product_price_log.old_price'><text id='company&#46;product&#95;price&#95;log&#46;old&#95;price' x='1371' y='863'>old&#95;price</text><title>&#10697;  old_price
+     decimal(10,2)</title></a>
+<text x='1520' y='864' class='dataType' style='fill:#B2B7C0;'>DECIMAL&#40;10&#44;2&#41;</text>  <a xlink:href='#company.product_price_log.new_price'><text id='company&#46;product&#95;price&#95;log&#46;new&#95;price' x='1371' y='882'>new&#95;price</text><title>&#10697;  new_price
+     decimal(10,2)</title></a>
+<text x='1520' y='883' class='dataType' style='fill:#B2B7C0;'>DECIMAL&#40;10&#44;2&#41;</text>  <a xlink:href='#company.product_price_log.change_time'><text id='company&#46;product&#95;price&#95;log&#46;change&#95;time' x='1371' y='901'>change&#95;time</text><title>&#10697;  change_time
+     timestamp default CURRENT_TIMESTAMP</title></a>
+<text x='1520' y='902' class='dataType' style='fill:#B2B7C0;'>TIMESTAMP</text>
+<!-- == Table 'orders' == -->
+<rect id='depict_company&#46;orders' class='entity' style='stroke:#F9F9FC' x='1349' y='314' width='228' height='171' rx='4' ry='4' />
+<rect x='1349' y='314' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1349' y='318' width='228' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.orders'><text id='depict&#45;company&#46;orders' x='1441' y='335' class='tableHeader' style='fill:#414148;'>orders</text><title>Table company.orders</title></a>
+  <use x='1350' y='357' xlink:href='#nn'/><use x='1351' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_orders ( order_id ) </title></use><a xlink:href='#company.orders.order_id'><text id='company&#46;orders&#46;order&#95;id' x='1371' y='369' onmouseover="hghl(['order_items_fk_order_items_orders','company.order_items.order_id','transactions_fk_transactions_orders','company.transactions.order_id'])" onmouseout="uhghl(['order_items_fk_order_items_orders','company.order_items.order_id','transactions_fk_transactions_orders','company.transactions.order_id'])" class='colPk'>order&#95;id</text><title>&#10697;  order_id
+     * int
+ &#8601; order_items( order_id )
+ &#8601; transactions( order_id )</title></a>
+<text x='1558' y='370' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.orders.order_id'><use x='1563' y='356' xlink:href='#ref'/><title>&#x1F517;  Referred by order_items ( order_id ) 
+Referred by transactions ( order_id ) </title></a>
+  <a xlink:href='#company.orders.customer_id'><text id='company&#46;orders&#46;customer&#95;id' x='1371' y='388'>customer&#95;id</text><title>&#10697;  customer_id
+     int</title></a>
+<text x='1558' y='389' class='dataType' style='fill:#B2B2C0;'>INT</text>  <a xlink:href='#company.orders.order_date'><text id='company&#46;orders&#46;order&#95;date' x='1371' y='407'>order&#95;date</text><title>&#10697;  order_date
+     date</title></a>
+<text x='1558' y='408' class='dataType' style='fill:#B2B2C0;'>DATE</text>  <a xlink:href='#company.orders.total_amount'><text id='company&#46;orders&#46;total&#95;amount' x='1371' y='426'>total&#95;amount</text><title>&#10697;  total_amount
+     decimal(15,2)</title></a>
+<text x='1558' y='427' class='dataType' style='fill:#B2B2C0;'>DECIMAL&#40;15&#44;2&#41;</text>  <a xlink:href='#company.orders.status'><text id='company&#46;orders&#46;status' x='1371' y='445'>status</text><title>&#10697;  status
+     varchar(50)</title></a>
+<text x='1558' y='446' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.orders.shipping_address'><text id='company&#46;orders&#46;shipping&#95;address' x='1371' y='464'>shipping&#95;address</text><title>&#10697;  shipping_address
+     varchar(255)</title></a>
+<text x='1558' y='465' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;255&#41;</text>
+<!-- == Table 'payment_methods' == -->
+<rect id='depict_company&#46;payment&#95;methods' class='entity' style='stroke:#F9FCF9' x='57' y='314' width='228' height='152' rx='4' ry='4' />
+<rect x='57' y='314' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='57' y='318' width='228' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.payment_methods'><text id='depict&#45;company&#46;payment&#95;methods' x='114' y='335' class='tableHeader' style='fill:#424841;'>payment&#95;methods</text><title>Table company.payment_methods</title></a>
+  <use x='58' y='357' xlink:href='#nn'/><use x='59' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_payment_methods ( payment_method_id ) </title></use><a xlink:href='#company.payment_methods.payment_method_id'><text id='company&#46;payment&#95;methods&#46;payment&#95;method&#95;id' x='79' y='369' onmouseover="hghl(['salaries_fk_salaries_payment_methods','company.salaries.salary_id'])" onmouseout="uhghl(['salaries_fk_salaries_payment_methods','company.salaries.salary_id'])" class='colPk'>payment&#95;method&#95;id</text><title>&#10697;  payment_method_id
+     * int
+ &#8601; salaries( payment_method_id )</title></a>
+<text x='266' y='370' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.payment_methods.payment_method_id'><use x='271' y='356' xlink:href='#ref'/><title>&#x1F517;  Referred by salaries ( salary_id -&gt; payment_method_id ) </title></a>
+  <use x='59' y='375' xlink:href='#idx'><title>&#x1F50D;  fk_payment_methods_customers ( customer_id ) </title></use><a xlink:href='#company.payment_methods.customer_id'><text id='company&#46;payment&#95;methods&#46;customer&#95;id' x='79' y='388' onmouseover="hghl(['payment_methods_fk_payment_methods_customers','company.customers.customer_id'])" onmouseout="uhghl(['payment_methods_fk_payment_methods_customers','company.customers.customer_id'])">customer&#95;id</text><title>&#10697;  customer_id
+     int
+ &#8599; payment_methods( customer_id )</title></a>
+<text x='266' y='389' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.payment_methods.customer_id'><use x='271' y='375' xlink:href='#fk'/><title>&#x1F517;  References customers ( customer_id ) </title></a>
+  <a xlink:href='#company.payment_methods.payment_type'><text id='company&#46;payment&#95;methods&#46;payment&#95;type' x='79' y='407'>payment&#95;type</text><title>&#10697;  payment_type
+     varchar(50)</title></a>
+<text x='266' y='408' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.payment_methods.payment_details'><text id='company&#46;payment&#95;methods&#46;payment&#95;details' x='79' y='426'>payment&#95;details</text><title>&#10697;  payment_details
+     varchar(255)</title></a>
+<text x='266' y='427' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;255&#41;</text>  <a xlink:href='#company.payment_methods.expiration_date'><text id='company&#46;payment&#95;methods&#46;expiration&#95;date' x='79' y='445'>expiration&#95;date</text><title>&#10697;  expiration_date
+     date</title></a>
+<text x='266' y='446' class='dataType' style='fill:#B4C0B2;'>DATE</text>
+<!-- == Table 'attendance' == -->
+<rect id='depict_company&#46;attendance' class='entity' style='stroke:#F9FCF9' x='342' y='314' width='209' height='152' rx='4' ry='4' />
+<rect x='342' y='314' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='342' y='318' width='209' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.attendance'><text id='depict&#45;company&#46;attendance' x='411' y='335' class='tableHeader' style='fill:#424841;'>attendance</text><title>Table company.attendance</title></a>
+  <use x='343' y='357' xlink:href='#nn'/><use x='344' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_attendance ( attendance_id ) </title></use><a xlink:href='#company.attendance.attendance_id'><text id='company&#46;attendance&#46;attendance&#95;id' x='364' y='369' class='colPk'>attendance&#95;id</text><title>&#10697;  attendance_id
+     * int</title></a>
+<text x='532' y='370' class='dataType' style='fill:#B4C0B2;'>INT</text>  <use x='344' y='375' xlink:href='#idx'><title>&#x1F50D;  fk_attendance_employees ( employee_id ) </title></use><a xlink:href='#company.attendance.employee_id'><text id='company&#46;attendance&#46;employee&#95;id' x='364' y='388' onmouseover="hghl(['attendance_fk_attendance_employees','company.employees.employee_id'])" onmouseout="uhghl(['attendance_fk_attendance_employees','company.employees.employee_id'])">employee&#95;id</text><title>&#10697;  employee_id
+     int
+ &#8599; attendance( employee_id )</title></a>
+<text x='532' y='389' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.attendance.employee_id'><use x='537' y='375' xlink:href='#fk'/><title>&#x1F517;  References employees ( employee_id ) </title></a>
+  <a xlink:href='#company.attendance.check_in_time'><text id='company&#46;attendance&#46;check&#95;in&#95;time' x='364' y='407'>check&#95;in&#95;time</text><title>&#10697;  check_in_time
+     datetime</title></a>
+<text x='532' y='408' class='dataType' style='fill:#B4C0B2;'>DATETIME</text>  <a xlink:href='#company.attendance.check_out_time'><text id='company&#46;attendance&#46;check&#95;out&#95;time' x='364' y='426'>check&#95;out&#95;time</text><title>&#10697;  check_out_time
+     datetime</title></a>
+<text x='532' y='427' class='dataType' style='fill:#B4C0B2;'>DATETIME</text>  <a xlink:href='#company.attendance.attendance_date'><text id='company&#46;attendance&#46;attendance&#95;date' x='364' y='445'>attendance&#95;date</text><title>&#10697;  attendance_date
+     date</title></a>
+<text x='532' y='446' class='dataType' style='fill:#B4C0B2;'>DATE</text>
+<!-- == Table 'employee_benefits' == -->
+<rect id='depict_company&#46;employee&#95;benefits' class='entity' style='stroke:#F9FCF9' x='627' y='314' width='209' height='152' rx='4' ry='4' />
+<rect x='627' y='314' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='627' y='318' width='209' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#company.employee_benefits'><text id='depict&#45;company&#46;employee&#95;benefits' x='674' y='335' class='tableHeader' style='fill:#424841;'>employee&#95;benefits</text><title>Table company.employee_benefits</title></a>
+  <use x='628' y='357' xlink:href='#nn'/><use x='629' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_employee_benefits ( benefit_id ) </title></use><a xlink:href='#company.employee_benefits.benefit_id'><text id='company&#46;employee&#95;benefits&#46;benefit&#95;id' x='649' y='369' class='colPk'>benefit&#95;id</text><title>&#10697;  benefit_id
+     * int</title></a>
+<text x='817' y='370' class='dataType' style='fill:#B4C0B2;'>INT</text>  <use x='629' y='375' xlink:href='#unq'><title>&#x1F50D;  Unq unq_employee_benefits_employee_id ( employee_id ) </title></use><a xlink:href='#company.employee_benefits.employee_id'><text id='company&#46;employee&#95;benefits&#46;employee&#95;id' x='649' y='388' onmouseover="hghl(['employees_fk_employees_employee_benefits','company.employees.employee_id'])" onmouseout="uhghl(['employees_fk_employees_employee_benefits','company.employees.employee_id'])">employee&#95;id</text><title>&#10697;  employee_id
+     int
+ &#8601; employees( employee_id )</title></a>
+<text x='817' y='389' class='dataType' style='fill:#B4C0B2;'>INT</text><a xlink:href='#company.employee_benefits.employee_id'><use x='822' y='375' xlink:href='#ref'/><title>&#x1F517;  Referred by employees ( employee_id ) </title></a>
+  <a xlink:href='#company.employee_benefits.benefit_type'><text id='company&#46;employee&#95;benefits&#46;benefit&#95;type' x='649' y='407'>benefit&#95;type</text><title>&#10697;  benefit_type
+     varchar(50)</title></a>
+<text x='817' y='408' class='dataType' style='fill:#B4C0B2;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.employee_benefits.start_date'><text id='company&#46;employee&#95;benefits&#46;start&#95;date' x='649' y='426'>start&#95;date</text><title>&#10697;  start_date
+     date</title></a>
+<text x='817' y='427' class='dataType' style='fill:#B4C0B2;'>DATE</text>  <a xlink:href='#company.employee_benefits.end_date'><text id='company&#46;employee&#95;benefits&#46;end&#95;date' x='649' y='445'>end&#95;date</text><title>&#10697;  end_date
+     date</title></a>
+<text x='817' y='446' class='dataType' style='fill:#B4C0B2;'>DATE</text>
+<!-- == Table 'customers' == -->
+<rect id='depict_company&#46;customers' class='entity' style='stroke:#FAF9FC' x='627' y='561' width='228' height='190' rx='4' ry='4' />
+<rect x='627' y='561' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#8F5DED'/>
+<rect x='627' y='565' width='228' height='29' style='stroke-width:0;fill:#FAF9FC'/>
+<a xlink:href='#company.customers'><text id='depict&#45;company&#46;customers' x='708' y='582' class='tableHeader' style='fill:#434148;'>customers</text><title>Table company.customers</title></a>
+  <use x='628' y='604' xlink:href='#nn'/><use x='629' y='603' xlink:href='#pk'><title>&#x1F511;  Pk pk_customers ( customer_id ) </title></use><a xlink:href='#company.customers.customer_id'><text id='company&#46;customers&#46;customer&#95;id' x='649' y='616' onmouseover="hghl(['payment_methods_fk_payment_methods_customers','company.payment_methods.customer_id','reviews_fk_reviews_customers','company.reviews.customer_id','salaries_fk_salaries_customers','company.salaries.salary_id','sales_fk_sales_customers','company.sales.customer_id'])" onmouseout="uhghl(['payment_methods_fk_payment_methods_customers','company.payment_methods.customer_id','reviews_fk_reviews_customers','company.reviews.customer_id','salaries_fk_salaries_customers','company.salaries.salary_id','sales_fk_sales_customers','company.sales.customer_id'])" class='colPk'>customer&#95;id</text><title>&#10697;  customer_id
+     * int
+ &#8601; payment_methods( customer_id )
+ &#8601; reviews( customer_id )
+ &#8601; salaries( customer_id )
+ &#8601; sales( customer_id )</title></a>
+<text x='836' y='617' class='dataType' style='fill:#B6B2C0;'>INT</text><a xlink:href='#company.customers.customer_id'><use x='841' y='603' xlink:href='#ref'/><title>&#x1F517;  Referred by payment_methods ( customer_id ) 
+Referred by reviews ( customer_id ) 
+Referred by salaries ( salary_id -&gt; customer_id ) 
+Referred by sales ( customer_id ) </title></a>
+  <a xlink:href='#company.customers.first_name'><text id='company&#46;customers&#46;first&#95;name' x='649' y='635'>first&#95;name</text><title>&#10697;  first_name
+     varchar(50)</title></a>
+<text x='836' y='636' class='dataType' style='fill:#B6B2C0;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.customers.last_name'><text id='company&#46;customers&#46;last&#95;name' x='649' y='654'>last&#95;name</text><title>&#10697;  last_name
+     varchar(50)</title></a>
+<text x='836' y='655' class='dataType' style='fill:#B6B2C0;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.customers.email'><text id='company&#46;customers&#46;email' x='649' y='673'>email</text><title>&#10697;  email
+     varchar(100)</title></a>
+<text x='836' y='674' class='dataType' style='fill:#B6B2C0;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.customers.phone_number'><text id='company&#46;customers&#46;phone&#95;number' x='649' y='692'>phone&#95;number</text><title>&#10697;  phone_number
+     varchar(20)</title></a>
+<text x='836' y='693' class='dataType' style='fill:#B6B2C0;'>VARCHAR&#40;20&#41;</text>  <a xlink:href='#company.customers.address'><text id='company&#46;customers&#46;address' x='649' y='711'>address</text><title>&#10697;  address
+     varchar(255)</title></a>
+<text x='836' y='712' class='dataType' style='fill:#B6B2C0;'>VARCHAR&#40;255&#41;</text>  <a xlink:href='#company.customers.registration_date'><text id='company&#46;customers&#46;registration&#95;date' x='649' y='730'>registration&#95;date</text><title>&#10697;  registration_date
+     date</title></a>
+<text x='836' y='731' class='dataType' style='fill:#B6B2C0;'>DATE</text>
+<!-- == Table 'campaign_results' == -->
+<rect id='depict_company&#46;campaign&#95;results' class='entity' style='stroke:#FCFAF9' x='57' y='561' width='209' height='152' rx='4' ry='4' />
+<rect x='57' y='561' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#EDAF5D'/>
+<rect x='57' y='565' width='209' height='29' style='stroke-width:0;fill:#FCFAF9'/>
+<a xlink:href='#company.campaign_results'><text id='depict&#45;company&#46;campaign&#95;results' x='109' y='582' class='tableHeader' style='fill:#484541;'>campaign&#95;results</text><title>Table company.campaign_results</title></a>
+  <use x='58' y='604' xlink:href='#nn'/><use x='59' y='603' xlink:href='#pk'><title>&#x1F511;  Pk pk_campaign_results ( result_id ) </title></use><a xlink:href='#company.campaign_results.result_id'><text id='company&#46;campaign&#95;results&#46;result&#95;id' x='79' y='616' class='colPk'>result&#95;id</text><title>&#10697;  result_id
+     * int</title></a>
+<text x='247' y='617' class='dataType' style='fill:#C0BAB2;'>INT</text>  <use x='59' y='622' xlink:href='#unq'><title>&#x1F50D;  Unq unq_campaign_results_campaign_id ( campaign_id ) </title></use><a xlink:href='#company.campaign_results.campaign_id'><text id='company&#46;campaign&#95;results&#46;campaign&#95;id' x='79' y='635' onmouseover="hghl(['marketing_campaigns_fk_marketing_campaigns_campaign_results','company.marketing_campaigns.campaign_id'])" onmouseout="uhghl(['marketing_campaigns_fk_marketing_campaigns_campaign_results','company.marketing_campaigns.campaign_id'])">campaign&#95;id</text><title>&#10697;  campaign_id
+     int
+ &#8601; marketing_campaigns( campaign_id )</title></a>
+<text x='247' y='636' class='dataType' style='fill:#C0BAB2;'>INT</text><a xlink:href='#company.campaign_results.campaign_id'><use x='252' y='622' xlink:href='#ref'/><title>&#x1F517;  Referred by marketing_campaigns ( campaign_id ) </title></a>
+  <a xlink:href='#company.campaign_results.total_spent'><text id='company&#46;campaign&#95;results&#46;total&#95;spent' x='79' y='654'>total&#95;spent</text><title>&#10697;  total_spent
+     decimal(15,2)</title></a>
+<text x='247' y='655' class='dataType' style='fill:#C0BAB2;'>DECIMAL&#40;15&#44;2&#41;</text>  <a xlink:href='#company.campaign_results.leads_generated'><text id='company&#46;campaign&#95;results&#46;leads&#95;generated' x='79' y='673'>leads&#95;generated</text><title>&#10697;  leads_generated
+     int</title></a>
+<text x='247' y='674' class='dataType' style='fill:#C0BAB2;'>INT</text>  <a xlink:href='#company.campaign_results.sales_generated'><text id='company&#46;campaign&#95;results&#46;sales&#95;generated' x='79' y='692'>sales&#95;generated</text><title>&#10697;  sales_generated
+     int</title></a>
+<text x='247' y='693' class='dataType' style='fill:#C0BAB2;'>INT</text>
+<!-- == Table 'reviews' == -->
+<rect id='depict_company&#46;reviews' class='entity' style='stroke:#FAF9FC' x='342' y='770' width='152' height='171' rx='4' ry='4' />
+<rect x='342' y='770' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#8F5DED'/>
+<rect x='342' y='774' width='152' height='29' style='stroke-width:0;fill:#FAF9FC'/>
+<a xlink:href='#company.reviews'><text id='depict&#45;company&#46;reviews' x='393' y='791' class='tableHeader' style='fill:#434148;'>reviews</text><title>Table company.reviews</title></a>
+  <use x='343' y='813' xlink:href='#nn'/><use x='344' y='812' xlink:href='#pk'><title>&#x1F511;  Pk pk_reviews ( review_id ) </title></use><a xlink:href='#company.reviews.review_id'><text id='company&#46;reviews&#46;review&#95;id' x='364' y='825' class='colPk'>review&#95;id</text><title>&#10697;  review_id
+     * int</title></a>
+<text x='475' y='826' class='dataType' style='fill:#B6B2C0;'>INT</text>  <use x='344' y='831' xlink:href='#unq'><title>&#x1F50D;  Unq unq_reviews_product_id ( product_id ) </title></use><a xlink:href='#company.reviews.product_id'><text id='company&#46;reviews&#46;product&#95;id' x='364' y='844'>product&#95;id</text><title>&#10697;  product_id
+     int</title></a>
+<text x='475' y='845' class='dataType' style='fill:#B6B2C0;'>INT</text>  <use x='344' y='850' xlink:href='#idx'><title>&#x1F50D;  fk_reviews_customers ( customer_id ) </title></use><a xlink:href='#company.reviews.customer_id'><text id='company&#46;reviews&#46;customer&#95;id' x='364' y='863' onmouseover="hghl(['reviews_fk_reviews_customers','company.customers.customer_id'])" onmouseout="uhghl(['reviews_fk_reviews_customers','company.customers.customer_id'])">customer&#95;id</text><title>&#10697;  customer_id
+     int
+ &#8599; reviews( customer_id )</title></a>
+<text x='475' y='864' class='dataType' style='fill:#B6B2C0;'>INT</text><a xlink:href='#company.reviews.customer_id'><use x='480' y='850' xlink:href='#fk'/><title>&#x1F517;  References customers ( customer_id ) </title></a>
+  <a xlink:href='#company.reviews.rating'><text id='company&#46;reviews&#46;rating' x='364' y='882'>rating</text><title>&#10697;  rating
+     int</title></a>
+<text x='475' y='883' class='dataType' style='fill:#B6B2C0;'>INT</text>  <a xlink:href='#company.reviews.review_date'><text id='company&#46;reviews&#46;review&#95;date' x='364' y='901'>review&#95;date</text><title>&#10697;  review_date
+     date</title></a>
+<text x='475' y='902' class='dataType' style='fill:#B6B2C0;'>DATE</text>  <a xlink:href='#company.reviews.comments'><text id='company&#46;reviews&#46;comments' x='364' y='920'>comments</text><title>&#10697;  comments
+     text</title></a>
+<text x='475' y='921' class='dataType' style='fill:#B6B2C0;'>TEXT</text>
+<!-- == Table 'sales' == -->
+<rect id='depict_company&#46;sales' class='entity' style='stroke:#FAF9FC' x='627' y='789' width='190' height='133' rx='4' ry='4' />
+<rect x='627' y='789' width='190' height='8' rx='4' ry='4' style='stroke-width:0;fill:#8F5DED'/>
+<rect x='627' y='793' width='190' height='29' style='stroke-width:0;fill:#FAF9FC'/>
+<a xlink:href='#company.sales'><text id='depict&#45;company&#46;sales' x='705' y='810' class='tableHeader' style='fill:#434148;'>sales</text><title>Table company.sales</title></a>
+  <use x='628' y='832' xlink:href='#nn'/><use x='629' y='831' xlink:href='#pk'><title>&#x1F511;  Pk pk_sales ( sales_id ) </title></use><a xlink:href='#company.sales.sales_id'><text id='company&#46;sales&#46;sales&#95;id' x='649' y='844' class='colPk'>sales&#95;id</text><title>&#10697;  sales_id
+     * int</title></a>
+<text x='798' y='845' class='dataType' style='fill:#B6B2C0;'>INT</text>  <a xlink:href='#company.sales.price'><text id='company&#46;sales&#46;price' x='649' y='863'>price</text><title>&#10697;  price
+     decimal(10,0)</title></a>
+<text x='798' y='864' class='dataType' style='fill:#B6B2C0;'>DECIMAL&#40;10&#44;0&#41;</text>  <a xlink:href='#company.sales.discount'><text id='company&#46;sales&#46;discount' x='649' y='882'>discount</text><title>&#10697;  discount
+     decimal(10,0)</title></a>
+<text x='798' y='883' class='dataType' style='fill:#B6B2C0;'>DECIMAL&#40;10&#44;0&#41;</text>  <use x='629' y='888' xlink:href='#idx'><title>&#x1F50D;  fk_sales_customers ( customer_id ) </title></use><a xlink:href='#company.sales.customer_id'><text id='company&#46;sales&#46;customer&#95;id' x='649' y='901' onmouseover="hghl(['sales_fk_sales_customers','company.customers.customer_id'])" onmouseout="uhghl(['sales_fk_sales_customers','company.customers.customer_id'])">customer&#95;id</text><title>&#10697;  customer_id
+     int
+ &#8599; sales( customer_id )</title></a>
+<text x='798' y='902' class='dataType' style='fill:#B6B2C0;'>INT</text><a xlink:href='#company.sales.customer_id'><use x='803' y='888' xlink:href='#fk'/><title>&#x1F517;  References customers ( customer_id ) </title></a>
+
+<!-- == Table 'shipping' == -->
+<rect id='depict_company&#46;shipping' class='entity' style='stroke:#F9F9FC' x='1634' y='67' width='228' height='171' rx='4' ry='4' />
+<rect x='1634' y='67' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1634' y='71' width='228' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.shipping'><text id='depict&#45;company&#46;shipping' x='1720' y='88' class='tableHeader' style='fill:#414148;'>shipping</text><title>Table company.shipping</title></a>
+  <use x='1635' y='110' xlink:href='#nn'/><use x='1636' y='109' xlink:href='#pk'><title>&#x1F511;  Pk pk_shipping ( shipping_id ) </title></use><a xlink:href='#company.shipping.shipping_id'><text id='company&#46;shipping&#46;shipping&#95;id' x='1656' y='122' onmouseover="hghl(['shipping_details_fk_shipping_details_shipping','company.shipping_details.shipping_id'])" onmouseout="uhghl(['shipping_details_fk_shipping_details_shipping','company.shipping_details.shipping_id'])" class='colPk'>shipping&#95;id</text><title>&#10697;  shipping_id
+     * int
+ &#8601; shipping_details( shipping_id )</title></a>
+<text x='1843' y='123' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.shipping.shipping_id'><use x='1848' y='109' xlink:href='#ref'/><title>&#x1F517;  Referred by shipping_details ( shipping_id ) </title></a>
+  <use x='1636' y='128' xlink:href='#unq'><title>&#x1F50D;  Unq unq_shipping_order_id ( order_id ) </title></use><a xlink:href='#company.shipping.order_id'><text id='company&#46;shipping&#46;order&#95;id' x='1656' y='141' onmouseover="hghl(['suppliers_fk_suppliers_shipping','company.suppliers.supplier_id'])" onmouseout="uhghl(['suppliers_fk_suppliers_shipping','company.suppliers.supplier_id'])">order&#95;id</text><title>&#10697;  order_id
+     int
+ &#8601; suppliers( order_id )</title></a>
+<text x='1843' y='142' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.shipping.order_id'><use x='1848' y='128' xlink:href='#ref'/><title>&#x1F517;  Referred by suppliers ( supplier_id -&gt; order_id ) </title></a>
+  <a xlink:href='#company.shipping.shipping_date'><text id='company&#46;shipping&#46;shipping&#95;date' x='1656' y='160'>shipping&#95;date</text><title>&#10697;  shipping_date
+     date</title></a>
+<text x='1843' y='161' class='dataType' style='fill:#B2B2C0;'>DATE</text>  <a xlink:href='#company.shipping.tracking_number'><text id='company&#46;shipping&#46;tracking&#95;number' x='1656' y='179'>tracking&#95;number</text><title>&#10697;  tracking_number
+     varchar(50)</title></a>
+<text x='1843' y='180' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.shipping.shipping_method'><text id='company&#46;shipping&#46;shipping&#95;method' x='1656' y='198'>shipping&#95;method</text><title>&#10697;  shipping_method
+     varchar(50)</title></a>
+<text x='1843' y='199' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.shipping.shipping_status'><text id='company&#46;shipping&#46;shipping&#95;status' x='1656' y='217'>shipping&#95;status</text><title>&#10697;  shipping_status
+     varchar(50)</title></a>
+<text x='1843' y='218' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;50&#41;</text>
+<!-- == Table 'suppliers' == -->
+<rect id='depict_company&#46;suppliers' class='entity' style='stroke:#F9F9FC' x='1634' y='314' width='228' height='171' rx='4' ry='4' />
+<rect x='1634' y='314' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1634' y='318' width='228' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.suppliers'><text id='depict&#45;company&#46;suppliers' x='1719' y='335' class='tableHeader' style='fill:#414148;'>suppliers</text><title>Table company.suppliers</title></a>
+  <use x='1635' y='357' xlink:href='#nn'/><use x='1636' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_suppliers ( supplier_id ) </title></use><a xlink:href='#company.suppliers.supplier_id'><text id='company&#46;suppliers&#46;supplier&#95;id' x='1656' y='369' onmouseover="hghl(['suppliers_fk_suppliers_shipping','company.shipping.order_id'])" onmouseout="uhghl(['suppliers_fk_suppliers_shipping','company.shipping.order_id'])" class='colPk'>supplier&#95;id</text><title>&#10697;  supplier_id
+     * int
+ &#8599; suppliers( order_id )</title></a>
+<text x='1843' y='370' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.suppliers.supplier_id'><use x='1848' y='356' xlink:href='#fk'/><title>&#x1F517;  References shipping ( supplier_id -&gt; order_id ) </title></a>
+  <a xlink:href='#company.suppliers.supplier_name'><text id='company&#46;suppliers&#46;supplier&#95;name' x='1656' y='388'>supplier&#95;name</text><title>&#10697;  supplier_name
+     varchar(100)</title></a>
+<text x='1843' y='389' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.suppliers.contact_name'><text id='company&#46;suppliers&#46;contact&#95;name' x='1656' y='407'>contact&#95;name</text><title>&#10697;  contact_name
+     varchar(50)</title></a>
+<text x='1843' y='408' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;50&#41;</text>  <a xlink:href='#company.suppliers.contact_email'><text id='company&#46;suppliers&#46;contact&#95;email' x='1656' y='426'>contact&#95;email</text><title>&#10697;  contact_email
+     varchar(100)</title></a>
+<text x='1843' y='427' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.suppliers.phone_number'><text id='company&#46;suppliers&#46;phone&#95;number' x='1656' y='445'>phone&#95;number</text><title>&#10697;  phone_number
+     varchar(20)</title></a>
+<text x='1843' y='446' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;20&#41;</text>  <a xlink:href='#company.suppliers.address'><text id='company&#46;suppliers&#46;address' x='1656' y='464'>address</text><title>&#10697;  address
+     varchar(255)</title></a>
+<text x='1843' y='465' class='dataType' style='fill:#B2B2C0;'>VARCHAR&#40;255&#41;</text>
+<!-- == Table 'order_items' == -->
+<rect id='depict_company&#46;order&#95;items' class='entity' style='stroke:#F9F9FC' x='1026' y='770' width='171' height='152' rx='4' ry='4' />
+<rect x='1026' y='770' width='171' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1026' y='774' width='171' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.order_items'><text id='depict&#45;company&#46;order&#95;items' x='1074' y='791' class='tableHeader' style='fill:#414148;'>order&#95;items</text><title>Table company.order_items</title></a>
+  <use x='1027' y='813' xlink:href='#nn'/><use x='1028' y='812' xlink:href='#pk'><title>&#x1F511;  Pk pk_order_items ( order_item_id ) </title></use><a xlink:href='#company.order_items.order_item_id'><text id='company&#46;order&#95;items&#46;order&#95;item&#95;id' x='1048' y='825' class='colPk'>order&#95;item&#95;id</text><title>&#10697;  order_item_id
+     * int</title></a>
+<text x='1178' y='826' class='dataType' style='fill:#B2B2C0;'>INT</text>  <use x='1028' y='831' xlink:href='#idx'><title>&#x1F50D;  fk_order_items_orders ( order_id ) </title></use><a xlink:href='#company.order_items.order_id'><text id='company&#46;order&#95;items&#46;order&#95;id' x='1048' y='844' onmouseover="hghl(['order_items_fk_order_items_orders','company.orders.order_id'])" onmouseout="uhghl(['order_items_fk_order_items_orders','company.orders.order_id'])">order&#95;id</text><title>&#10697;  order_id
+     int
+ &#8599; order_items( order_id )</title></a>
+<text x='1178' y='845' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.order_items.order_id'><use x='1183' y='831' xlink:href='#fk'/><title>&#x1F517;  References orders ( order_id ) </title></a>
+  <a xlink:href='#company.order_items.product_id'><text id='company&#46;order&#95;items&#46;product&#95;id' x='1048' y='863'>product&#95;id</text><title>&#10697;  product_id
+     int</title></a>
+<text x='1178' y='864' class='dataType' style='fill:#B2B2C0;'>INT</text>  <a xlink:href='#company.order_items.quantity'><text id='company&#46;order&#95;items&#46;quantity' x='1048' y='882'>quantity</text><title>&#10697;  quantity
+     int</title></a>
+<text x='1178' y='883' class='dataType' style='fill:#B2B2C0;'>INT</text>  <a xlink:href='#company.order_items.price'><text id='company&#46;order&#95;items&#46;price' x='1048' y='901'>price</text><title>&#10697;  price
+     decimal(10,2)</title></a>
+<text x='1178' y='902' class='dataType' style='fill:#B2B2C0;'>DECIMAL&#40;10&#44;2&#41;</text>
+<!-- == Table 'transactions' == -->
+<rect id='depict_company&#46;transactions' class='entity' style='stroke:#F9F9FC' x='1045' y='580' width='190' height='152' rx='4' ry='4' />
+<rect x='1045' y='580' width='190' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1045' y='584' width='190' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.transactions'><text id='depict&#45;company&#46;transactions' x='1102' y='601' class='tableHeader' style='fill:#414148;'>transactions</text><title>Table company.transactions</title></a>
+  <use x='1046' y='623' xlink:href='#nn'/><use x='1047' y='622' xlink:href='#pk'><title>&#x1F511;  Pk pk_transactions ( transaction_id ) </title></use><a xlink:href='#company.transactions.transaction_id'><text id='company&#46;transactions&#46;transaction&#95;id' x='1067' y='635' class='colPk'>transaction&#95;id</text><title>&#10697;  transaction_id
+     * int</title></a>
+<text x='1216' y='636' class='dataType' style='fill:#B2B2C0;'>INT</text>  <use x='1047' y='641' xlink:href='#idx'><title>&#x1F50D;  fk_transactions_orders ( order_id ) </title></use><a xlink:href='#company.transactions.order_id'><text id='company&#46;transactions&#46;order&#95;id' x='1067' y='654' onmouseover="hghl(['transactions_fk_transactions_orders','company.orders.order_id'])" onmouseout="uhghl(['transactions_fk_transactions_orders','company.orders.order_id'])">order&#95;id</text><title>&#10697;  order_id
+     int
+ &#8599; transactions( order_id )</title></a>
+<text x='1216' y='655' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.transactions.order_id'><use x='1221' y='641' xlink:href='#fk'/><title>&#x1F517;  References orders ( order_id ) </title></a>
+  <a xlink:href='#company.transactions.transaction_date'><text id='company&#46;transactions&#46;transaction&#95;date' x='1067' y='673'>transaction&#95;date</text><title>&#10697;  transaction_date
+     date</title></a>
+<text x='1216' y='674' class='dataType' style='fill:#B2B2C0;'>DATE</text>  <a xlink:href='#company.transactions.amount'><text id='company&#46;transactions&#46;amount' x='1067' y='692'>amount</text><title>&#10697;  amount
+     decimal(15,2)</title></a>
+<text x='1216' y='693' class='dataType' style='fill:#B2B2C0;'>DECIMAL&#40;15&#44;2&#41;</text>  <a xlink:href='#company.transactions.payment_method_id'><text id='company&#46;transactions&#46;payment&#95;method&#95;id' x='1067' y='711'>payment&#95;method&#95;id</text><title>&#10697;  payment_method_id
+     int</title></a>
+<text x='1216' y='712' class='dataType' style='fill:#B2B2C0;'>INT</text>
+<!-- == Table 'shipping_details' == -->
+<rect id='depict_company&#46;shipping&#95;details' class='entity' style='stroke:#F9F9FC' x='1387' y='580' width='133' height='114' rx='4' ry='4' />
+<rect x='1387' y='580' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D5DED'/>
+<rect x='1387' y='584' width='133' height='29' style='stroke-width:0;fill:#F9F9FC'/>
+<a xlink:href='#company.shipping_details'><text id='depict&#45;company&#46;shipping&#95;details' x='1404' y='601' class='tableHeader' style='fill:#414148;'>shipping&#95;details</text><title>Table company.shipping_details</title></a>
+  <use x='1388' y='623' xlink:href='#nn'/><use x='1389' y='622' xlink:href='#pk'><title>&#x1F511;  Pk pk_shipping_details ( shipping_id ) </title></use><a xlink:href='#company.shipping_details.shipping_id'><text id='company&#46;shipping&#95;details&#46;shipping&#95;id' x='1409' y='635' onmouseover="hghl(['shipping_details_fk_shipping_details_shipping','company.shipping.shipping_id','order_details_fk_order_details_shipping_details','company.order_details.description'])" onmouseout="uhghl(['shipping_details_fk_shipping_details_shipping','company.shipping.shipping_id','order_details_fk_order_details_shipping_details','company.order_details.description'])" class='colPk'>shipping&#95;id</text><title>&#10697;  shipping_id
+     * int
+ &#8599; shipping_details( shipping_id )
+ &#8601; order_details( shipping_id )</title></a>
+<text x='1501' y='636' class='dataType' style='fill:#B2B2C0;'>INT</text><a xlink:href='#company.shipping_details.shipping_id'><use x='1506' y='622' xlink:href='#fk'/><title>&#x1F517;  References shipping ( shipping_id ) 
+Referred by order_details ( description -&gt; shipping_id ) </title></a>
+  <a xlink:href='#company.shipping_details.description'><text id='company&#46;shipping&#95;details&#46;description' x='1409' y='654'>description</text><title>&#10697;  description
+     int</title></a>
+<text x='1501' y='655' class='dataType' style='fill:#B2B2C0;'>INT</text>  <use x='1388' y='661' xlink:href='#nn'/><use x='1389' y='660' xlink:href='#idx'><title>&#x1F50D;  idx_shipping_details_ship_date ( ship_date ) </title></use><a xlink:href='#company.shipping_details.ship_date'><text id='company&#46;shipping&#95;details&#46;ship&#95;date' x='1409' y='673' onmouseover="hghl(['shipping_details_fk_shipping_details_projects','company.projects.start_date'])" onmouseout="uhghl(['shipping_details_fk_shipping_details_projects','company.projects.start_date'])">ship&#95;date</text><title>&#10697;  ship_date
+     * date default curdate()
+ &#8599; shipping_details( start_date )</title></a>
+<text x='1501' y='674' class='dataType' style='fill:#B2B2C0;'>DATE</text><a xlink:href='#company.shipping_details.ship_date'><use x='1506' y='660' xlink:href='#fk'/><title>&#x1F517;  References projects ( ship_date -&gt; start_date ) </title></a>
+
+<!-- == Table 'products' == -->
+<rect id='depict_company&#46;products' class='entity' style='stroke:#F9FAFC' x='1634' y='580' width='228' height='114' rx='4' ry='4' />
+<rect x='1634' y='580' width='228' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='1634' y='584' width='228' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<a xlink:href='#company.products'><text id='depict&#45;company&#46;products' x='1719' y='601' class='tableHeader' style='fill:#414348;'>products</text><title>Table company.products</title></a>
+  <use x='1635' y='623' xlink:href='#nn'/><use x='1636' y='622' xlink:href='#pk'><title>&#x1F511;  Pk pk_products ( product_id ) </title></use><a xlink:href='#company.products.product_id'><text id='company&#46;products&#46;product&#95;id' x='1656' y='635' class='colPk'>product&#95;id</text><title>&#10697;  product_id
+     * int</title></a>
+<text x='1843' y='636' class='dataType' style='fill:#B2B7C0;'>INT</text>  <a xlink:href='#company.products.product_name'><text id='company&#46;products&#46;product&#95;name' x='1656' y='654'>product&#95;name</text><title>&#10697;  product_name
+     varchar(100)</title></a>
+<text x='1843' y='655' class='dataType' style='fill:#B2B7C0;'>VARCHAR&#40;100&#41;</text>  <a xlink:href='#company.products.price'><text id='company&#46;products&#46;price' x='1656' y='673'>price</text><title>&#10697;  price
+     decimal(10,2)</title></a>
+<text x='1843' y='674' class='dataType' style='fill:#B2B7C0;'>DECIMAL&#40;10&#44;2&#41;</text>
+</g></svg>

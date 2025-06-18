@@ -1,0 +1,537 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='1406' height='889' viewBox='0 0 1406 889' >
+  <script type='text/ecmascript'>
+  <![CDATA[
+  function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
+  function uhghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','unhighlight'); }  } 
+  ]]>
+  </script> 
+
+<style type='text/css'>
+  text                { fill:#6e798a; font-weight:normal;stroke:#2a2b2c;stroke-width:.1px; font-family: Segoe UI, 'Segoe UI', Dialog; font-size:13.0px; }
+  text.tableHeader    { fill:#576b57; font-weight:normal;stroke:#2a2b2c;stroke-width:.1px; font-family: Segoe UI, 'Segoe UI', Dialog; font-size:13.0px;  font-weight: Regular; }
+  a text:hover        { font-weight:500; }
+  text.highlight      { font-weight:500; }
+  text.white          { fill:#ffffff; }
+  text.colType        { fill:#bac1cb; }
+  text.relName        { fill:#9c9a9a; stroke-width:0; }
+  text.dataType       { stroke:0; font-size:12px; text-anchor: end;}
+  text.legendTitle    { fill:#2b3b64; font-weight:500; }
+  text.legendSubTitle { fill:#616161; font-size:12px; }
+  path, circle        { stroke:#9c9ca0; stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .filled             { fill:#7f7971; }
+  path.virtual        { stroke:#71527b; }
+  path.logo           { fill:#fbeac0;fill-opacity:1;stroke-width:0.3;stroke:#222222; }
+  path.dotted         { stroke-dasharray:3,3; }
+  path.unhighlight    { stroke-width:12; opacity:0; pointer-events:all; }
+  path.highlight      { stroke-width:2; stroke:#154b95; opacity:1; pointer-events:all; }
+  path.line           { stroke-width:10; stroke-linecap:round; stroke-linejoin:round; }
+  rect.entity         { fill:#ffffff; stroke-width:1; shape-rendering:crispEdges; filter:url(#shadow); }
+  line.delim          { stroke-width:1px; shape-rendering:crispEdges; }
+  text.callout        { fill:#201a10; font-family: Segoe UI, 'Segoe UI', Dialog; font-size:13.0px; }
+  rect.callout        { fill:url(#calloutGradient); stroke-width:1px; stroke:#d0cec3; }
+  rect.shape          { stroke:#bebdbd; stroke-width:0.5; }
+  rect.legend         { fill:url(#legendGradient); stroke-width:1px; stroke:#d6dbe4; }
+  text.grp            { fill:#b1b1b1; }
+  rect.grp            { stroke:#aef1ac; stroke-width:1; opacity:0.5; }
+  path.bgPattern      { fill:none;stroke-width:0.6;stroke:#e5e9ee; }
+  path.eval           { fill:#efefef;fill-opacity:1;stroke-width:0.6;stroke:#e9e9e9; }
+  rect.palpable       { fill:#fffbe5; }
+</style>
+<defs>
+  <pattern id="layoutBgA" width="60" height="34.64" patternUnits="userSpaceOnUse">
+    <rect x="0" y="0"  width="60" height="34.64" fill="#edeeef" />
+  </pattern>
+  <pattern id='layoutBgEval'  width='300' height='300' x='0' y='0' patternUnits="userSpaceOnUse">
+    <g transform='scale(1.5)'>
+    <path class='eval' d='m 62.011835,91.267143 c 3.536475,3.175214 2.262669,8.705999 -1.637711,11.015197 -3.594697,5.8423 -6.34682,-2.892623 -9.715478,-4.653898 -5.609222,-2.838926 2.050802,-6.680123 4.77004,-8.319046 2.334696,-0.724067 4.935143,0.312302 6.583149,1.957747 z m -2.720492,2.538595 c -2.698397,-3.517732 -9.282815,1.269287 -3.69635,3.568637 2.765331,5.605665 7.052809,-0.56184 3.69635,-3.568637 z' />
+    <path class='eval' d='m 72.25864,84.624638 c 4.108046,3.143003 -0.737059,6.895259 -1.994918,8.323564 -3.586718,5.561143 -6.495079,-4.197379 -10.07759,-5.582178 -4.443422,-1.088878 1.349298,-7.249213 2.503526,-2.503449 2.464639,4.517161 2.304019,-3.70697 6.291113,-1.995914 1.280083,0.137865 2.410691,0.864819 3.277869,1.757977 z m -2.646109,2.323242 c -4.797162,-3.078383 -2.810517,6.305507 0.515161,1.990646 0.296432,-0.688582 0.01209,-1.493412 -0.515161,-1.990646 z' />
+    <path class='eval' d='m 78.230641,79.436735 c 4.142121,3.027466 -2.020102,10.435276 -3.450543,5.477315 3.306312,-5.248112 -9.186019,-2.220094 -5.805994,-8.77679 -0.544141,-3.93011 6.797826,-2.102227 3.386015,0.245477 -0.181085,2.915838 4.637371,1.019311 5.870522,3.053982 z' />
+    <path class='eval' d='m 82.744502,72.597397 c -4.901605,1.926521 1.146497,6.285555 2.559694,2.225783 6.21817,3.539297 -6.640186,8.416664 -7.590325,1.997457 -2.24365,-2.914883 4.026676,-10.148618 5.030631,-4.22324 z' />
+    <path class='eval' d='m 90.727458,64.259158 c 1.583987,1.690029 3.321317,3.2696 4.81267,5.026353 -2.535706,6.849794 -6.445583,-5.918773 -8.388458,-0.167017 0.782768,2.03426 5.877405,3.752079 2.670979,5.711199 -3.315119,1.519161 -5.782422,-5.157931 -8.858893,-6.780537 -4.229842,-1.139816 1.510134,-7.074128 2.586227,-2.385939 3.141198,5.495193 1.840537,-5.598295 7.177489,-1.404062 z' />
+    <path class='eval' d='m 99.622027,58.374253 c 1.493293,1.9548 -6.281936,7.024659 -0.885258,4.740447 0.386238,-4.434477 6.131941,-1.133173 2.175851,1.618005 -4.421491,6.12739 -13.666659,-3.151506 -7.058299,-7.136537 1.785129,-1.119329 4.348209,-0.743179 5.767706,0.778085 z m -2.900824,1.89746 c -3.608188,-2.208543 -2.280489,5.00803 -0.12563,0.329531 z' />
+    <path class='eval' d='m 115.18023,50.570441 c -1.61703,5.201678 -4.6204,-0.364502 -7.01598,-1.749619 -4.40977,2.122562 4.89641,4.913939 1.89606,7.018157 -2.48061,3.877635 -4.11404,-4.060614 -7.01192,-2.6391 -1.76318,3.107252 7.28394,6.252304 0.87346,7.876177 -1.74515,-2.956649 -9.055498,-5.610518 -3.950378,-8.66062 1.696478,1.897023 1.770418,-5.43503 5.347308,-3.072411 -0.44014,-5.474701 6.11995,-4.950882 7.7846,-0.815355 0.69076,0.682329 1.39587,1.351469 2.07685,2.042771 z' />
+    <path class='eval' d='m 120.54891,39.417125 c 2.50681,1.334124 4.80466,4.941837 0.75044,5.297362 -0.46414,1.89865 -5.25369,5.602652 -8.01742,1.815475 -3.87345,-2.809139 -0.0676,-7.603869 2.3036,-8.133924 1.6795,-3.853018 3.16703,-1.199465 4.96338,1.021087 z m -2.2464,2.175828 c -4.8049,-2.992167 -3.08987,6.380358 0.42374,2.036159 0.33052,-0.677508 0.12099,-1.525836 -0.42374,-2.036159 z' />
+    <path class='eval' d='m 128.50836,24.06821 c -5.10403,3.035506 3.20535,6.383175 5.05938,9.450276 -0.91853,2.95886 -4.06493,3.650723 -5.34691,0.265618 -2.25715,-2.089033 -4.65672,-6.948595 -7.07024,-2.584686 -4.71758,-3.764394 3.81217,-5.812054 5.12382,-9.226328 0.75738,0.677487 1.38637,1.498638 2.23389,2.095175 z' />
+    <path class='eval' d='m 137.14366,22.299812 c -3.09615,2.259885 0.71537,4.412454 1.99042,6.435866 -3.08975,5.080354 -5.91384,-2.98648 -8.92144,-4.094939 1.44369,-3.219573 3.3497,-1.335928 4.27156,-4.41058 0.97822,-0.894325 1.75044,1.871047 2.65946,2.069653 z' />
+    <path class='eval' d='m 136.85093,14.890174 c 2.31562,5.283511 -7.17975,1.771993 -1.29675,-0.475107 l 0.7108,0.08973 z m 4.867,5.317354 c 2.56912,1.439678 4.26517,4.725219 0.30678,5.233637 -1.56592,-3.098864 -9.51683,-5.749448 -3.64502,-8.633714 1.17746,0.325095 2.15375,2.591149 3.33824,3.400077 z' />
+    <path class='eval' d='m 149.95578,11.976423 c 2.50679,1.334142 4.80455,4.94192 0.75041,5.297394 -0.4641,1.898604 -5.25368,5.602645 -8.0174,1.81545 -3.87347,-2.80918 -0.0676,-7.603844 2.30366,-8.133968 1.67949,-3.8530525 3.16695,-1.1993573 4.96333,1.021124 z m -2.24641,2.175828 c -4.80489,-2.992177 -3.08986,6.380343 0.42374,2.036167 0.33055,-0.677518 0.121,-1.52585 -0.42374,-2.036167 z' />
+    <path class='eval' d='m 153.26135,7.538431 c 2.60497,1.5799548 6.03999,5.944272 1.08117,6.050232 -2.53319,-3.231828 -7.20316,-6.4304525 -8.84748,-9.4582682 1.89121,-2.8664883 3.78452,-2.247699 5.38514,0.8929426 0.78017,0.8503859 1.57195,1.6911437 2.38118,2.5150667 z' />
+    </g>
+  </pattern>
+  <linearGradient id='legendGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+    <stop offset='0%' stop-color='#eef5fc' />
+    <stop offset='100%' stop-color='#f7fafe' />
+  </linearGradient>
+  <!-- https://norbat.de/svg-pattern-3d-webmuster/ -->
+  <linearGradient id='calloutGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+    <stop offset='0%' stop-color='#efeae1dd' />
+    <stop offset='100%' stop-color='#e8e9eadd' />
+  </linearGradient>
+  <filter id="shadow">
+    <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#a0a0a0" flood-opacity="0.4" />
+  </filter>
+  <!--
+  <filter id='shadow2' width='120%' height='120%'>
+    <feOffset result='offOut' in='SourceGraphic' dx='0' dy='0' />
+    <feColorMatrix result='matrixOut' in='offOut'
+                   values='0.5 0 0 0 0 0 0.5 0 0 0 0 0 0.5 0 0 0 0 0 0.5 0' />
+    <feGaussianBlur result='blurOut' in='matrixOut' stdDeviation='3' />
+    <feBlend in='SourceGraphic' in2='blurOut' />
+  </filter>
+  -->
+  <filter id='fkShadow' height='130%'>
+    <feGaussianBlur in='SourceAlpha' stdDeviation='1.5'/> <!-- stdDeviation is how much to blur -->
+    <feOffset dx='1.2' dy='1.2' result='offsetblur'/> <!-- how much to offset -->
+    <feMerge>
+      <feMergeNode/> <!-- this contains the offset blurred image -->
+      <feMergeNode in='SourceGraphic'/> <!-- this contains the element that the filter is applied to -->
+    </feMerge>
+  </filter>
+  <symbol id='calloutArrowDown' >
+    <path d='M 0,0 L 8,12 L 16,0 z' style='fill:#f8f6d1;stroke:none; filter: url(#shadow);' />
+    <path d='M 0,0 L 8,12 L 16,0' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='calloutArrowUp' >
+    <path d='M 0,16 L 8,4 L 16,16 z' style='fill:#ffffff; stroke:none; filter: url(#shadow);' />
+    <path d='M 0,16 L 8,4 L 16,16' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='pk' width="13" height="13">
+    <g>
+      <path style='fill:#999999;stroke:#999999;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round;'
+            d='M 9.3678877,3.5695485 C 9.1030218,3.2729386 9.0796382,2.7628519 9.3396185,2.4517097 9.5449651,2.1956495 9.9040386,2.0980533 10.199638,2.2169415 10.533525,2.3415459 10.775153,2.706942 10.750675,3.0842709 10.737029,3.3980003 10.541153,3.699122 10.258248,3.8066067 9.966649,3.9250429 9.6169668,3.8418805 9.4008073,3.6062324 9.3894892,3.5943518 9.3785264,3.582104 9.3678886,3.5695487 z M 11.226617,6.9916004 C 11.888137,6.3548946 12.293488,5.4172188 12.311087,4.442353 12.378144,2.7379364 11.248678,1.0541269 9.7322318,0.44767357 8.3887112,-0.1280313 6.7865012,0.26822889 5.8918395,1.4007929 5.080823,2.3839145 4.9336815,3.8452096 5.3635544,5.101615 L 4.3670905,5.315913 C 4.0664984,5.3682645 4.0967703,5.6316724 4.2574957,5.8208829 L 4.9124,6.5655244 4.1543436,7.2512357 3.2136002,7.2163506 3.1674775,8.5586827 2.0406832,8.5086512 1.5965306,8.9299953 1.5471661,10.179833 0.75616674,10.195223 0.2112857,10.758575 0.15354288,11.735988 0.07199052,12.765553 c 0.36440953,0.238225 0.79006967,0.195492 1.44938278,-0.02675 L 6.3033562,8.1282037 6.8217102,8.6765688 C 6.9985465,8.8799427 7.3003699,8.7497574 7.358381,8.5016252 L 7.4938877,7.5084164 c 0.8537488,0.3985387 1.8303125,0.4711541 2.6851793,0.1427713 0.393927,-0.1407258 0.746858,-0.3701772 1.04755,-0.6595873 z'/>
+      <path d='M 6.8014948,6.3102123 0.15369063,13.024481 0.21560535,12.141962 6.0062342,6.2683782 z'
+            style='fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:0.06912433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:3.00300009'/>
+    </g>
+  </symbol>
+  <symbol id='idx1' width="13" height="13">
+    <g transform='scale(0.99)'>
+      <rect width='4' height='4' x='7' y='1' style='fill:#ffff3f;stroke:#b48333;stroke-width:0.6;' ry='0.83'/>
+      <rect width='4' height='4' x='1' y='7' style='fill:#ffff3f;stroke:#b48333;stroke-width:0.6;' ry='0.832'/>
+      <rect width='4' height='4' x='7' y='7' style='fill:#ffff3f;stroke:#b48333;stroke-width:0.6;' ry='0.832'/>
+    </g>
+  </symbol>
+  <symbol id='idx2' width="13" height="13">
+    <g transform='scale(0.99)'>
+      <rect width='4' height='3' x='6' y='1' style='fill:#7fc8e9;stroke:#2f6f8c;stroke-width:0.6;' ry='0.83'/>
+      <rect width='7' height='3' x='3' y='6' style='fill:#7fc8e9;stroke:#2f6f8c;stroke-width:0.6;' ry='0.832'/>
+    </g>
+  </symbol>
+  <symbol id='unq' width="13" height="13">
+    <g transform='scale(0.75)'>
+      <path style="fill:#999999;stroke:none;" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+      <text x='4' y='9' style='font-size:8px;fill:#999999;'>1</text>
+    </g>
+  </symbol>
+  <symbol id='idx' width="13" height="13">
+    <g transform='scale(0.75)'>
+      <path style="fill:#999999;stroke:none;" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+    </g>
+  </symbol>
+  <symbol id='fk' width="13" height="13">
+    <g transform='scale(0.87)'>
+      <path style='fill:none;stroke:#5a72a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 1.1,11 1,5.3 C 1,3.6 1.6,3.3 2.9,3.3 l 7.9,0' />
+      <path style='fill:#5a72a8;stroke:#5a72a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 6.3,0.8 11.3,3.4 6.3,5.6 Z' />
+    </g>
+  </symbol>
+  <symbol id='ref' width="13" height="13">
+    <g transform='scale(0.87)'>
+      <path style='fill:none;stroke:#906b25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='m 10.9,11.2 0,-5.8 C 10,3.7 10,3 9,3 l -7.9,0'/>
+      <path style='fill:#906b25;stroke:#906b25;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 5.7,0.8 0.7,3.4 5.7,5.6 Z'/>
+    </g>
+  </symbol>
+  <symbol id='flag0' width="16" height="16">
+    <g transform='scale(0.75)'>
+      <path style="fill:#b7d0f6;stroke:none;" d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+    </g>
+  </symbol>
+  <symbol id='flag1' width="16" height="16">
+    <g transform='scale(0.75)'>
+      <path style="fill:#f4a393;stroke:none;" d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+    </g>
+  </symbol>
+  <symbol id='flag2' width="16" height="16">
+    <g transform='scale(0.75)'>
+      <path style="fill:#77ec8b;stroke:none;" d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+    </g>
+  </symbol>
+  <symbol id='nn' width="3" height="3">
+    <path style='stroke:#da897b;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0,0 3,3 M 0,3 3,0 z'/>
+  </symbol>
+  <symbol id='virtual' width="16" height="16">
+    <g transform='scale(0.99)'>
+      <circle cx='8' cy='8' r='5' style='#9e9185;stroke-width:1;fill:transparent' />
+      <path style='stroke:#5394b8;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 2.71,5.8 Q-2.12,-2.20 9.15,6.52 Q 17.92,17.67 10.53,13.56'/>
+      <path style='stroke:#5394b8;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M 5.47,13.64 Q -1.82,17.24 6.65,6.78 Q 17.88,-1.36 13.51,5.42'/>
+    </g>
+  </symbol>
+  <symbol id='leaf' width="16" height="16">
+    <g transform='scale(0.99)'>
+      <path style='stroke:#7290ab9d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M .7,0 L.7,9.2 L3.85,9.2'/>
+      <text x="4" y="13" style='fill:#b0880d;stroke-width:0;font-size:14px;'>{ }</text>
+    </g>
+  </symbol>
+  <symbol id='leafArray' width="16" height="16">
+    <g transform='scale(0.99)'>
+      <path style='stroke:#7290ab9d;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+            d='M .7,0 L.7,9.2 L3.85,9.2'/>
+      <text x="4" y="13" style='fill:#b0880d;stroke-width:0;font-size:14px;'>[ ]</text>
+    </g>
+  </symbol>
+  <symbol id='view' width="13" height="13">
+    <g transform='scale(0.81)'>
+      <path style="fill:#999999;stroke:none;" d="M3 2.5A1.5 1.5 0 0 1 4.5 1h1A1.5 1.5 0 0 1 7 2.5V5h2V2.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5v2.382a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V14.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 14.5v-3a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5v3A1.5 1.5 0 0 1 5.5 16h-3A1.5 1.5 0 0 1 1 14.5V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882zM4.5 2a.5.5 0 0 0-.5.5V3h2v-.5a.5.5 0 0 0-.5-.5zM6 4H4v.882a1.5 1.5 0 0 1-.83 1.342l-.894.447A.5.5 0 0 0 2 7.118V13h4v-1.293l-.854-.853A.5.5 0 0 1 5 10.5v-1A1.5 1.5 0 0 1 6.5 8h3A1.5 1.5 0 0 1 11 9.5v1a.5.5 0 0 1-.146.354l-.854.853V13h4V7.118a.5.5 0 0 0-.276-.447l-.895-.447A1.5 1.5 0 0 1 12 4.882V4h-2v1.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zm4-1h2v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm4 11h-4v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-8 0H2v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5z"/>
+    </g>
+  </symbol>
+  <symbol id='logo' width="100" height="100" style="filter:url(#shadow);">
+    <path style='stroke:none;fill:#5d5d5d' d='M2.41,6.80 17.39,0.35 26.83,7.21 28.32,24.45 12.62,29.77 1.74,23.96'/>
+    <path style='stroke:none;fill:#efefef' d='M 2.21, 6.45  9.36, 3.49  9.42,11.63  2.04,14.42'/>
+    <path style='stroke:none;fill:#efefef' d='M10.23, 3.14 17.39, 0.17 17.68, 8.59 10.29,11.28'/>
+    <path style='stroke:none;fill:#d2d2d2' d='M17.44, 0.17 21.59, 3.55 22.36,11.43 17.76,8.63'/>
+    <path style='stroke:none;fill:#d2d2d2' d='M22.67, 4.33 26.98, 7.06 27.65,14.77 23.20,11.77'/>
+    <path style='stroke:none;fill:#efefef' d='M1.89,15.58  9.39,12.65  9.48,21.14  1.57,24.10'/>
+    <path style='stroke:none;fill:#17afde' d='M10.38,12.36 17.70, 9.51 18.11,18.37 10.32 20.96'/>
+    <path style='stroke:none;fill:#1389ad' d='M17.73, 9.59 22.41,12.47 22.82,21.14 18.05,18.34'/>
+    <path style='stroke:none;fill:#d2d2d2' d='M23.26,12.94 27.62,15.70 28.42,24.54 23.69,21.60'/>
+    <path style='stroke:none;fill:#828282' d='M1.57,24.19  9.45,21.22 14.30,24.40  6.80,26.80'/>
+    <path style='stroke:none;fill:#0c485c' d='M10.47,20.90 18.11,18.32 22.82,21.19 15.20,23.81'/>
+    <path style='stroke:none;fill:#828282' d='M23.69,21.63 28.32,24.65 20.87,27.07 15.84,24.30'/>
+    <path style='stroke:none;fill:#828282' d='M14.94,24.68 19.80,27.41 12.59,29.97  7.73,27.21'/>
+  </symbol>
+    <symbol id="bulb" viewBox="0 0 24 24">
+      <rect x="10" y="16" width="4" height="6" rx="1.5" ry="1.5" style='fill:#c4ae85;stroke:#c3ad44;stroke-width:0.3;stroke-linecap:round;stroke-linejoin:round;filter:url(#shadow);' />
+      <circle cx="12" cy="12" r="5" style='fill:#fff9c1;stroke:#c3ad44;stroke-width:0.3;filter:url(#shadow);'/>
+    </symbol>
+</defs>
+
+<defs>  <marker id='ZeroMore' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <circle cx='2.38' cy='4.75' r='2.38' style='stroke-width:1;' />
+    <path d='M 9.50,0.00 L 4.75,4.75 L 9.50,9.50' style='stroke-width:1;'/>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='ZeroOne' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+    <circle cx='2.38' cy='4.75' r='2.38' style='stroke-width:1;' />
+    <path d='M 4.75,0.00 L 4.75, 9.50 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='OneMore' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+    <path d='M 4.75,0.00 L 4.75, 9.50 z' style='stroke-width:1;'/>
+    <path d='M 9.50,0.00 L 4.75,4.75 L 9.50,9.50' style='stroke-width:1;'/>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='One' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+    <path d='M 4.75,0.00 L 4.75, 9.50 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='Range' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 0.00,4.75 L 9.50,4.75 z' style='stroke-width:1;'/>
+  </marker>
+  <marker id='Arrow' viewBox='0 0 9.50 9.50' refX='4.75' refY='4.75' markerWidth='9.50' markerHeight='9.50' orient='auto-start-reverse'>
+    <path d='M 4.750,2.375 L 9.500,4.750 L 4.750,7.125 z' style='stroke-width:1;' class='filled'/>
+  </marker>
+  <linearGradient id='tbg_BED3F4' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#C5D4EE' /> 
+     <stop offset='100%' stop-color='#EBEFF7' /> 
+  </linearGradient>
+  <linearGradient id='tbg_C7F4BE' x1='0%' y1='0%' x2='100%' y2='0%' >
+     <stop offset='0%' stop-color='#CBEEC5' /> 
+     <stop offset='100%' stop-color='#EDF7EB' /> 
+  </linearGradient>
+</defs>
+
+<!-- == Shape Colors == -->
+<!-- == Desktop == -->
+<rect x='0' y='0' width='1406' height='889' rx='9' ry='9' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
+
+<!-- == Legend == -->
+<g transform='translate(10,10)'>
+  <rect x='10' y='10' width='360' height='70' rx='7' ry='7' class='legend'/> 
+  <use x='349' y='28' xlink:href='#bulb' width='24' height='24'><title>Read column and table comments by hovering the columns and tables.
+Zoom with CTRL+whell mouse button, pan by dragging the diagram with the right-mouse button</title></use>
+  <use x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >MongoDB Diagram</text> 
+  <text x='57' y='47' class='legendSubTitle'><tspan>Read schema comments as mouse-over tooltips</tspan></text>
+  <a xlink:href='https://dbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>DbSchema.com © 2025-05-23 Wise Coders<title>DbSchema is an universal database designer.
+DbSchema has a free Community Edition.</title></tspan></text></a> 
+</g>
+
+<g transform='translate(0,110)'>
+<!-- == Fk 'reviews_Relationship' == -->
+<path id='reviews_Relationship'  onmouseover="hghl(['reviews_Relationship','StreamFlix.reviews.movie_id','StreamFlix.movie._id'])" onmouseout="uhghl(['reviews_Relationship','StreamFlix.reviews.movie_id','StreamFlix.movie._id'])" transform='translate(9,0)' class='unhighlight' d='M 1178,266L 1092,266Q 1083,266 1083,256L 1083,104Q 1083,95 1073,95L 1064,95' >
+	<title>&#x1F517;  Foreign Key Relationship
+reviews ref movie ( movie_id -&gt; _id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='virtual'  d='M 1178,266L 1092,266Q 1083,266 1083,256L 1083,104Q 1083,95 1073,95L 1064,95' ><title>&#x1F517;  Foreign Key Relationship
+reviews ref movie ( movie_id -&gt; _id )</title></path>
+<text x='1117' y='260' transform='rotate(0 1117,260)' class='relName'>Relationship</text>
+<!-- == Fk 'reviews_Relationship' == -->
+<path id='reviews_Relationship'  onmouseover="hghl(['reviews_Relationship','StreamFlix.reviews.user_id','StreamFlix.users._id'])" onmouseout="uhghl(['reviews_Relationship','StreamFlix.reviews.user_id','StreamFlix.users._id'])" transform='translate(9,0)' class='unhighlight' d='M 1178,247L 1130,247Q 1121,247 1121,256L 1121,332Q 1121,342 1111,342L 1102,342' >
+	<title>&#x1F517;  Foreign Key Relationship
+reviews ref users ( user_id -&gt; _id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='virtual'  d='M 1178,247L 1130,247Q 1121,247 1121,256L 1121,332Q 1121,342 1111,342L 1102,342' ><title>&#x1F517;  Foreign Key Relationship
+reviews ref users ( user_id -&gt; _id )</title></path>
+<text x='1117' y='241' transform='rotate(0 1117,241)' class='relName'>Relationship</text>
+<!-- == Fk 'watch_history_fk_watch_history_users' == -->
+<path id='watch_history_fk_watch_history_users'  onmouseover="hghl(['watch_history_fk_watch_history_users','StreamFlix.watch_history.user_id','StreamFlix.users._id'])" onmouseout="uhghl(['watch_history_fk_watch_history_users','StreamFlix.watch_history.user_id','StreamFlix.users._id'])" transform='translate(9,0)' class='unhighlight' d='M 874,608L 864,608Q 855,608 855,598L 855,361' >
+	<title>&#x1F517;  Foreign Key fk_watch_history_users
+watch_history ref users ( user_id -&gt; _id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)'   class='virtual'  d='M 874,608L 864,608Q 855,608 855,598L 855,361' ><title>&#x1F517;  Foreign Key fk_watch_history_users
+watch_history ref users ( user_id -&gt; _id )</title></path>
+<text x='754' y='602' transform='rotate(0 754,602)' class='relName'>fk&#95;watch&#95;history&#95;users</text>
+<!-- == Fk 'subscriptions_fk_subscriptions_users' == -->
+<path id='subscriptions_fk_subscriptions_users'  onmouseover="hghl(['subscriptions_fk_subscriptions_users','StreamFlix.subscriptions.user_id','StreamFlix.users._id'])" onmouseout="uhghl(['subscriptions_fk_subscriptions_users','StreamFlix.subscriptions.user_id','StreamFlix.users._id'])" transform='translate(9,0)' class='unhighlight' d='M 798,380L 845,380Q 855,380 855,370L 855,351Q 855,342 864,342L 874,342' >
+	<title>&#x1F517;  Foreign Key fk_subscriptions_users
+subscriptions ref users ( user_id -&gt; _id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='virtual'  d='M 798,380L 845,380Q 855,380 855,370L 855,351Q 855,342 864,342L 874,342' ><title>&#x1F517;  Foreign Key fk_subscriptions_users
+subscriptions ref users ( user_id -&gt; _id )</title></path>
+<text x='807' y='374' transform='rotate(0 807,374)' class='relName'>fk&#95;subscriptions&#95;users</text>
+<!-- == Table 'genres' == -->
+<rect id='depict_StreamFlix&#46;genres' class='entity' style='stroke:#F9FAFC' x='57' y='333' width='152' height='114' rx='4' ry='4' />
+<rect x='57' y='333' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='57' y='337' width='152' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='48' y='333' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.genres'><text id='depict&#45;StreamFlix&#46;genres' x='110' y='354' class='tableHeader' style='fill:#414348;'>genres</text><title>Collection StreamFlix.genres</title></a>
+  <use x='58' y='376' xlink:href='#nn'/><use x='59' y='375' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.genres._id'><text id='StreamFlix&#46;genres&#46;&#95;id' x='79' y='388' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='190' y='389' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='58' y='395' xlink:href='#nn'/><a xlink:href='#StreamFlix.genres.name'><text id='StreamFlix&#46;genres&#46;name' x='79' y='407'>name</text><title>&#10697;  name
+     * string</title></a>
+<text x='190' y='408' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='58' y='414' xlink:href='#nn'/><a xlink:href='#StreamFlix.genres.description'><text id='StreamFlix&#46;genres&#46;description' x='79' y='426'>description</text><title>&#10697;  description
+     * string</title></a>
+<text x='190' y='427' class='dataType' style='fill:#B2B7C0;'>string</text>
+<!-- == Table 'notifications' == -->
+<rect id='depict_StreamFlix&#46;notifications' class='entity' style='stroke:#F9FAFC' x='57' y='48' width='152' height='152' rx='4' ry='4' />
+<rect x='57' y='48' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='57' y='52' width='152' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='48' y='48' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.notifications'><text id='depict&#45;StreamFlix&#46;notifications' x='94' y='69' class='tableHeader' style='fill:#414348;'>notifications</text><title>Collection StreamFlix.notifications</title></a>
+  <use x='58' y='91' xlink:href='#nn'/><use x='59' y='90' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.notifications._id'><text id='StreamFlix&#46;notifications&#46;&#95;id' x='79' y='103' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='190' y='104' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='58' y='110' xlink:href='#nn'/><text x='60' y='122'>&#9654;</text><a xlink:href='#StreamFlix.notifications.user_id'><text id='StreamFlix&#46;notifications&#46;user&#95;id' x='79' y='122'>user&#95;id</text><title>&#10697;  user_id
+     * object</title></a>
+<text x='190' y='123' class='dataType' style='fill:#B2B7C0;'>object</text>  <use x='58' y='129' xlink:href='#nn'/><a xlink:href='#StreamFlix.notifications.type'><text id='StreamFlix&#46;notifications&#46;type' x='79' y='141'>type</text><title>&#10697;  type
+     * string</title></a>
+<text x='190' y='142' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='58' y='148' xlink:href='#nn'/><a xlink:href='#StreamFlix.notifications.message'><text id='StreamFlix&#46;notifications&#46;message' x='79' y='160'>message</text><title>&#10697;  message
+     * string</title></a>
+<text x='190' y='161' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='58' y='167' xlink:href='#nn'/><text x='60' y='179'>&#9654;</text><a xlink:href='#StreamFlix.notifications.createdAt'><text id='StreamFlix&#46;notifications&#46;createdAt' x='79' y='179'>createdAt</text><title>&#10697;  createdAt
+     * object</title></a>
+<text x='190' y='180' class='dataType' style='fill:#B2B7C0;'>object</text>
+<!-- == Table 'actors' == -->
+<rect id='depict_StreamFlix&#46;actors' class='entity' style='stroke:#F9FAFC' x='76' y='561' width='171' height='133' rx='4' ry='4' />
+<rect x='76' y='561' width='171' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='76' y='565' width='171' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='67' y='561' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.actors'><text id='depict&#45;StreamFlix&#46;actors' x='141' y='582' class='tableHeader' style='fill:#414348;'>actors</text><title>Collection StreamFlix.actors</title></a>
+  <use x='77' y='604' xlink:href='#nn'/><use x='78' y='603' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.actors._id'><text id='StreamFlix&#46;actors&#46;&#95;id' x='98' y='616' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='228' y='617' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='77' y='623' xlink:href='#nn'/><a xlink:href='#StreamFlix.actors.name'><text id='StreamFlix&#46;actors&#46;name' x='98' y='635'>name</text><title>&#10697;  name
+     * string</title></a>
+<text x='228' y='636' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='77' y='642' xlink:href='#nn'/><a xlink:href='#StreamFlix.actors.birth_year'><text id='StreamFlix&#46;actors&#46;birth&#95;year' x='98' y='654'>birth&#95;year</text><title>&#10697;  birth_year
+     * int</title></a>
+<text x='228' y='655' class='dataType' style='fill:#B2B7C0;'>int</text>  <use x='77' y='661' xlink:href='#nn'/><text x='79' y='673'>&#9654;</text><a xlink:href='#StreamFlix.actors.awards'><text id='StreamFlix&#46;actors&#46;awards' x='98' y='673'>awards</text><title>&#10697;  awards
+     * array[object]</title></a>
+<text x='228' y='674' class='dataType' style='fill:#B2B7C0;'>array&#91;object&#93;</text>
+<!-- == Table 'devices' == -->
+<rect id='depict_StreamFlix&#46;devices' class='entity' style='stroke:#F9FAFC' x='304' y='48' width='209' height='266' rx='4' ry='4' />
+<rect x='304' y='48' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='304' y='52' width='209' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='295' y='48' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.devices'><text id='depict&#45;StreamFlix&#46;devices' x='384' y='69' class='tableHeader' style='fill:#414348;'>devices</text><title>Collection StreamFlix.devices</title></a>
+  <use x='305' y='91' xlink:href='#nn'/><use x='306' y='90' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.devices._id'><text id='StreamFlix&#46;devices&#46;&#95;id' x='326' y='103' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='494' y='104' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='305' y='110' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.type'><text id='StreamFlix&#46;devices&#46;type' x='326' y='122'>type</text><title>&#10697;  type
+     * string</title></a>
+<text x='494' y='123' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='129' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.brand'><text id='StreamFlix&#46;devices&#46;brand' x='326' y='141'>brand</text><title>&#10697;  brand
+     * string</title></a>
+<text x='494' y='142' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='148' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.model'><text id='StreamFlix&#46;devices&#46;model' x='326' y='160'>model</text><title>&#10697;  model
+     * string</title></a>
+<text x='494' y='161' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='167' xlink:href='#nn'/><text x='307' y='179'>&#9654;</text><a xlink:href='#StreamFlix.devices.os'><text id='StreamFlix&#46;devices&#46;os' x='326' y='179'>os</text><title>&#10697;  os
+     * object</title></a>
+<text x='494' y='180' class='dataType' style='fill:#B2B7C0;'>object</text>  <use x='305' y='186' xlink:href='#nn'/><text x='307' y='198'>&#9654;</text><a xlink:href='#StreamFlix.devices.features'><text id='StreamFlix&#46;devices&#46;features' x='326' y='198'>features</text><title>&#10697;  features
+     * array[object]</title></a>
+<text x='494' y='199' class='dataType' style='fill:#B2B7C0;'>array&#91;object&#93;</text>  <use x='305' y='205' xlink:href='#nn'/><text x='307' y='217'>&#9654;</text><a xlink:href='#StreamFlix.devices.connectivity'><text id='StreamFlix&#46;devices&#46;connectivity' x='326' y='217'>connectivity</text><title>&#10697;  connectivity
+     * object</title></a>
+<text x='494' y='218' class='dataType' style='fill:#B2B7C0;'>object</text>  <use x='305' y='224' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.release_year'><text id='StreamFlix&#46;devices&#46;release&#95;year' x='326' y='236'>release&#95;year</text><title>&#10697;  release_year
+     * int</title></a>
+<text x='494' y='237' class='dataType' style='fill:#B2B7C0;'>int</text>  <use x='305' y='243' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.apps_installed'><text id='StreamFlix&#46;devices&#46;apps&#95;installed' x='326' y='255'>apps&#95;installed</text><title>&#10697;  apps_installed
+     * array[string]</title></a>
+<text x='494' y='256' class='dataType' style='fill:#B2B7C0;'>array&#91;string&#93;</text>  <use x='305' y='262' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.energy_rating'><text id='StreamFlix&#46;devices&#46;energy&#95;rating' x='326' y='274'>energy&#95;rating</text><title>&#10697;  energy_rating
+     * string</title></a>
+<text x='494' y='275' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='281' xlink:href='#nn'/><a xlink:href='#StreamFlix.devices.addedAt'><text id='StreamFlix&#46;devices&#46;addedAt' x='326' y='293'>addedAt</text><title>&#10697;  addedAt
+     * date</title></a>
+<text x='494' y='294' class='dataType' style='fill:#B2B7C0;'>date</text>
+<!-- == Table 'plans' == -->
+<rect id='depict_StreamFlix&#46;plans' class='entity' style='stroke:#F9FAFC' x='589' y='48' width='152' height='114' rx='4' ry='4' />
+<rect x='589' y='48' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='589' y='52' width='152' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='580' y='48' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.plans'><text id='depict&#45;StreamFlix&#46;plans' x='646' y='69' class='tableHeader' style='fill:#414348;'>plans</text><title>Collection StreamFlix.plans</title></a>
+  <use x='590' y='91' xlink:href='#nn'/><use x='591' y='90' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><text x='592' y='103'>&#9654;</text><a xlink:href='#StreamFlix.plans._id'><text id='StreamFlix&#46;plans&#46;&#95;id' x='611' y='103' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * object</title></a>
+<text x='722' y='104' class='dataType' style='fill:#B2B7C0;'>object</text>  <use x='590' y='110' xlink:href='#nn'/><a xlink:href='#StreamFlix.plans.price'><text id='StreamFlix&#46;plans&#46;price' x='611' y='122'>price</text><title>&#10697;  price
+     * double</title></a>
+<text x='722' y='123' class='dataType' style='fill:#B2B7C0;'>double</text>  <use x='590' y='129' xlink:href='#nn'/><a xlink:href='#StreamFlix.plans.resolution'><text id='StreamFlix&#46;plans&#46;resolution' x='611' y='141'>resolution</text><title>&#10697;  resolution
+     * string</title></a>
+<text x='722' y='142' class='dataType' style='fill:#B2B7C0;'>string</text>
+<!-- == Table 'contentRatings' == -->
+<rect id='depict_StreamFlix&#46;contentRatings' class='entity' style='stroke:#F9FAFC' x='304' y='333' width='209' height='133' rx='4' ry='4' />
+<rect x='304' y='333' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='304' y='337' width='209' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<a xlink:href='#StreamFlix.contentRatings'><text id='depict&#45;StreamFlix&#46;contentRatings' x='362' y='354' class='tableHeader' style='fill:#414348;'>contentRatings</text><title>Collection StreamFlix.contentRatings</title></a>
+  <use x='305' y='376' xlink:href='#nn'/><use x='306' y='375' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.contentRatings._id'><text id='StreamFlix&#46;contentRatings&#46;&#95;id' x='326' y='388' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='494' y='389' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='305' y='395' xlink:href='#nn'/><a xlink:href='#StreamFlix.contentRatings.movie_id'><text id='StreamFlix&#46;contentRatings&#46;movie&#95;id' x='326' y='407'>movie&#95;id</text><title>&#10697;  movie_id
+     * objectid</title></a>
+<text x='494' y='408' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='305' y='414' xlink:href='#nn'/><a xlink:href='#StreamFlix.contentRatings.region'><text id='StreamFlix&#46;contentRatings&#46;region' x='326' y='426'>region</text><title>&#10697;  region
+     * string</title></a>
+<text x='494' y='427' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='433' xlink:href='#nn'/><a xlink:href='#StreamFlix.contentRatings.rating'><text id='StreamFlix&#46;contentRatings&#46;rating' x='326' y='445'>rating</text><title>&#10697;  rating
+     * enum(&apos;g&apos;,&apos;pg&apos;,&apos;pg-13&apos;,&apos;r&apos;,&apos;nc-17&apos;)</title></a>
+<text x='494' y='446' class='dataType' style='fill:#B2B7C0;'>enum&#40;&#39;G&#39;&#44;&#39;PG&#39;&#44;&#39;PG&#45;13&#39;&#46;&#46;&#46;</text>
+<!-- == Table 'supportTickets' == -->
+<rect id='depict_StreamFlix&#46;supportTickets' class='entity' style='stroke:#F9FAFC' x='589' y='561' width='171' height='152' rx='4' ry='4' />
+<rect x='589' y='561' width='171' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='589' y='565' width='171' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='580' y='561' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.supportTickets'><text id='depict&#45;StreamFlix&#46;supportTickets' x='629' y='582' class='tableHeader' style='fill:#414348;'>supportTickets</text><title>Collection StreamFlix.supportTickets</title></a>
+  <use x='590' y='604' xlink:href='#nn'/><use x='591' y='603' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.supportTickets._id'><text id='StreamFlix&#46;supportTickets&#46;&#95;id' x='611' y='616' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='741' y='617' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='590' y='623' xlink:href='#nn'/><a xlink:href='#StreamFlix.supportTickets.user_id'><text id='StreamFlix&#46;supportTickets&#46;user&#95;id' x='611' y='635'>user&#95;id</text><title>&#10697;  user_id
+     * objectid</title></a>
+<text x='741' y='636' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='590' y='642' xlink:href='#nn'/><a xlink:href='#StreamFlix.supportTickets.status'><text id='StreamFlix&#46;supportTickets&#46;status' x='611' y='654'>status</text><title>&#10697;  status
+     * string</title></a>
+<text x='741' y='655' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='590' y='661' xlink:href='#nn'/><a xlink:href='#StreamFlix.supportTickets.created_at'><text id='StreamFlix&#46;supportTickets&#46;created&#95;at' x='611' y='673'>created&#95;at</text><title>&#10697;  created_at
+     * date</title></a>
+<text x='741' y='674' class='dataType' style='fill:#B2B7C0;'>date</text>  <use x='590' y='680' xlink:href='#nn'/><text x='592' y='692'>&#9654;</text><a xlink:href='#StreamFlix.supportTickets.messages'><text id='StreamFlix&#46;supportTickets&#46;messages' x='611' y='692'>messages</text><title>&#10697;  messages
+     * array[object]</title></a>
+<text x='741' y='693' class='dataType' style='fill:#B2B7C0;'>array&#91;object&#93;</text>
+<!-- == Table 'directors' == -->
+<rect id='depict_StreamFlix&#46;directors' class='entity' style='stroke:#F9FAFC' x='304' y='561' width='190' height='133' rx='4' ry='4' />
+<rect x='304' y='561' width='190' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='304' y='565' width='190' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<use x='295' y='561' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.directors'><text id='depict&#45;StreamFlix&#46;directors' x='370' y='582' class='tableHeader' style='fill:#414348;'>directors</text><title>Collection StreamFlix.directors</title></a>
+  <use x='305' y='604' xlink:href='#nn'/><use x='306' y='603' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.directors._id'><text id='StreamFlix&#46;directors&#46;&#95;id' x='326' y='616' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='475' y='617' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='305' y='623' xlink:href='#nn'/><a xlink:href='#StreamFlix.directors.name'><text id='StreamFlix&#46;directors&#46;name' x='326' y='635'>name</text><title>&#10697;  name
+     * string</title></a>
+<text x='475' y='636' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='642' xlink:href='#nn'/><a xlink:href='#StreamFlix.directors.nationality'><text id='StreamFlix&#46;directors&#46;nationality' x='326' y='654'>nationality</text><title>&#10697;  nationality
+     * string</title></a>
+<text x='475' y='655' class='dataType' style='fill:#B2B7C0;'>string</text>  <use x='305' y='661' xlink:href='#nn'/><text x='307' y='673'>&#9654;</text><a xlink:href='#StreamFlix.directors.filmography'><text id='StreamFlix&#46;directors&#46;filmography' x='326' y='673'>filmography</text><title>&#10697;  filmography
+     * array[object]</title></a>
+<text x='475' y='674' class='dataType' style='fill:#B2B7C0;'>array&#91;object&#93;</text>
+<!-- == Table 'movie' == -->
+<rect id='depict_StreamFlix&#46;movie' class='entity' style='stroke:#F9FCF9' x='893' y='48' width='171' height='190' rx='4' ry='4' />
+<rect x='893' y='48' width='171' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='893' y='52' width='171' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<use x='884' y='48' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.movie'><text id='depict&#45;StreamFlix&#46;movie' x='958' y='69' class='tableHeader' style='fill:#424841;'>movie</text><title>Collection StreamFlix.movie</title></a>
+  <use x='894' y='91' xlink:href='#nn'/><use x='895' y='90' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.movie._id'><text id='StreamFlix&#46;movie&#46;&#95;id' x='915' y='103' onmouseover="hghl(['reviews_Relationship','StreamFlix.reviews.movie_id'])" onmouseout="uhghl(['reviews_Relationship','StreamFlix.reviews.movie_id'])" class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid
+ &#8601; reviews( _id )</title></a>
+<text x='1045' y='104' class='dataType' style='fill:#B4C0B2;'>objectId</text><a xlink:href='#StreamFlix.movie._id'><use x='1050' y='90' xlink:href='#ref'/><title>&#x1F517;  Referred by reviews ( movie_id -&gt; _id ) </title></a>
+  <use x='894' y='110' xlink:href='#nn'/><text x='896' y='122'>&#9654;</text><a xlink:href='#StreamFlix.movie.cast'><text id='StreamFlix&#46;movie&#46;cast' x='915' y='122'>cast</text><title>&#10697;  cast
+     * array[object]</title></a>
+<text x='1045' y='123' class='dataType' style='fill:#B4C0B2;'>array&#91;object&#93;</text>  <use x='894' y='129' xlink:href='#nn'/><text x='896' y='141'>&#9654;</text><a xlink:href='#StreamFlix.movie.uploaded_by'><text id='StreamFlix&#46;movie&#46;uploaded&#95;by' x='915' y='141'>uploaded&#95;by</text><title>&#10697;  uploaded_by
+     * object</title></a>
+<text x='1045' y='142' class='dataType' style='fill:#B4C0B2;'>object</text>  <use x='894' y='148' xlink:href='#nn'/><a xlink:href='#StreamFlix.movie.genre'><text id='StreamFlix&#46;movie&#46;genre' x='915' y='160'>genre</text><title>&#10697;  genre
+     * string</title></a>
+<text x='1045' y='161' class='dataType' style='fill:#B4C0B2;'>string</text>  <use x='894' y='167' xlink:href='#nn'/><a xlink:href='#StreamFlix.movie.release_year'><text id='StreamFlix&#46;movie&#46;release&#95;year' x='915' y='179'>release&#95;year</text><title>&#10697;  release_year
+     * int</title></a>
+<text x='1045' y='180' class='dataType' style='fill:#B4C0B2;'>int</text>  <use x='894' y='186' xlink:href='#nn'/><text x='896' y='198'>&#9654;</text><a xlink:href='#StreamFlix.movie.details'><text id='StreamFlix&#46;movie&#46;details' x='915' y='198'>details</text><title>&#10697;  details
+     * object</title></a>
+<text x='1045' y='199' class='dataType' style='fill:#B4C0B2;'>object</text>  <use x='894' y='205' xlink:href='#nn'/><a xlink:href='#StreamFlix.movie.title'><text id='StreamFlix&#46;movie&#46;title' x='915' y='217'>title</text><title>&#10697;  title
+     * string</title></a>
+<text x='1045' y='218' class='dataType' style='fill:#B4C0B2;'>string</text>
+<!-- == Table 'reviews' == -->
+<rect id='depict_StreamFlix&#46;reviews' class='entity' style='stroke:#F9FCF9' x='1197' y='181' width='152' height='171' rx='4' ry='4' />
+<rect x='1197' y='181' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='1197' y='185' width='152' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<use x='1188' y='181' xlink:href='#virtual'/>
+<a xlink:href='#StreamFlix.reviews'><text id='depict&#45;StreamFlix&#46;reviews' x='1248' y='202' class='tableHeader' style='fill:#424841;'>reviews</text><title>Collection StreamFlix.reviews</title></a>
+  <use x='1198' y='224' xlink:href='#nn'/><use x='1199' y='223' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.reviews._id'><text id='StreamFlix&#46;reviews&#46;&#95;id' x='1219' y='236' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='1330' y='237' class='dataType' style='fill:#B4C0B2;'>objectId</text>  <use x='1198' y='243' xlink:href='#nn'/><a xlink:href='#StreamFlix.reviews.user_id'><text id='StreamFlix&#46;reviews&#46;user&#95;id' x='1219' y='255' onmouseover="hghl(['reviews_Relationship','StreamFlix.users._id'])" onmouseout="uhghl(['reviews_Relationship','StreamFlix.users._id'])">user&#95;id</text><title>&#10697;  user_id
+     * objectid
+ &#8599; reviews( _id )</title></a>
+<text x='1330' y='256' class='dataType' style='fill:#B4C0B2;'>objectId</text><a xlink:href='#StreamFlix.reviews.user_id'><use x='1335' y='242' xlink:href='#fk'/><title>&#x1F517;  References users ( user_id -&gt; _id ) </title></a>
+  <use x='1198' y='262' xlink:href='#nn'/><a xlink:href='#StreamFlix.reviews.movie_id'><text id='StreamFlix&#46;reviews&#46;movie&#95;id' x='1219' y='274' onmouseover="hghl(['reviews_Relationship','StreamFlix.movie._id'])" onmouseout="uhghl(['reviews_Relationship','StreamFlix.movie._id'])">movie&#95;id</text><title>&#10697;  movie_id
+     * objectid
+ &#8599; reviews( _id )</title></a>
+<text x='1330' y='275' class='dataType' style='fill:#B4C0B2;'>objectId</text><a xlink:href='#StreamFlix.reviews.movie_id'><use x='1335' y='261' xlink:href='#fk'/><title>&#x1F517;  References movie ( movie_id -&gt; _id ) </title></a>
+  <use x='1198' y='281' xlink:href='#nn'/><a xlink:href='#StreamFlix.reviews.rating'><text id='StreamFlix&#46;reviews&#46;rating' x='1219' y='293'>rating</text><title>&#10697;  rating
+     * int</title></a>
+<text x='1330' y='294' class='dataType' style='fill:#B4C0B2;'>int</text>  <use x='1198' y='300' xlink:href='#nn'/><a xlink:href='#StreamFlix.reviews.comment'><text id='StreamFlix&#46;reviews&#46;comment' x='1219' y='312'>comment</text><title>&#10697;  comment
+     * string</title></a>
+<text x='1330' y='313' class='dataType' style='fill:#B4C0B2;'>string</text>  <use x='1198' y='319' xlink:href='#nn'/><a xlink:href='#StreamFlix.reviews.created_at'><text id='StreamFlix&#46;reviews&#46;created&#95;at' x='1219' y='331'>created&#95;at</text><title>&#10697;  created_at
+     * date</title></a>
+<text x='1330' y='332' class='dataType' style='fill:#B4C0B2;'>date</text>
+<!-- == Table 'users' == -->
+<rect id='depict_StreamFlix&#46;users' class='entity' style='stroke:#F9FCF9' x='893' y='295' width='209' height='171' rx='4' ry='4' />
+<rect x='893' y='295' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#75ED5D'/>
+<rect x='893' y='299' width='209' height='29' style='stroke-width:0;fill:#F9FCF9'/>
+<a xlink:href='#StreamFlix.users'><text id='depict&#45;StreamFlix&#46;users' x='979' y='316' class='tableHeader' style='fill:#424841;'>users</text><title>Collection StreamFlix.users</title></a>
+  <use x='894' y='338' xlink:href='#nn'/><use x='895' y='337' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.users._id'><text id='StreamFlix&#46;users&#46;&#95;id' x='915' y='350' onmouseover="hghl(['reviews_Relationship','StreamFlix.reviews.user_id','subscriptions_fk_subscriptions_users','StreamFlix.subscriptions.user_id','watch_history_fk_watch_history_users','StreamFlix.watch_history.user_id'])" onmouseout="uhghl(['reviews_Relationship','StreamFlix.reviews.user_id','subscriptions_fk_subscriptions_users','StreamFlix.subscriptions.user_id','watch_history_fk_watch_history_users','StreamFlix.watch_history.user_id'])" class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid
+ &#8601; reviews( _id )
+ &#8601; subscriptions( _id )
+ &#8601; watch_history( _id )</title></a>
+<text x='1083' y='351' class='dataType' style='fill:#B4C0B2;'>objectId</text><a xlink:href='#StreamFlix.users._id'><use x='1088' y='337' xlink:href='#ref'/><title>&#x1F517;  Referred by reviews ( user_id -&gt; _id ) 
+Referred by subscriptions ( user_id -&gt; _id ) 
+Referred by watch_history ( user_id -&gt; _id ) </title></a>
+  <use x='894' y='357' xlink:href='#nn'/><a xlink:href='#StreamFlix.users.name'><text id='StreamFlix&#46;users&#46;name' x='915' y='369'>name</text><title>&#10697;  name
+     * string</title></a>
+<text x='1083' y='370' class='dataType' style='fill:#B4C0B2;'>string</text>  <use x='894' y='376' xlink:href='#nn'/><a xlink:href='#StreamFlix.users.email'><text id='StreamFlix&#46;users&#46;email' x='915' y='388'>email</text><title>&#10697;  email
+     * string pattern:&apos;^.+@.+\..+$&apos;</title></a>
+<text x='1083' y='389' class='dataType' style='fill:#B4C0B2;'>string pattern&#58;&#39;&#94;&#46;&#43;&#64;&#46;&#46;&#46;&#46;</text>  <use x='894' y='395' xlink:href='#nn'/><a xlink:href='#StreamFlix.users.createdAt'><text id='StreamFlix&#46;users&#46;createdAt' x='915' y='407'>createdAt</text><title>&#10697;  createdAt
+     * date</title></a>
+<text x='1083' y='408' class='dataType' style='fill:#B4C0B2;'>date</text>  <use x='894' y='414' xlink:href='#nn'/><a xlink:href='#StreamFlix.users.isActive'><text id='StreamFlix&#46;users&#46;isActive' x='915' y='426'>isActive</text><title>&#10697;  isActive
+     * bool</title></a>
+<text x='1083' y='427' class='dataType' style='fill:#B4C0B2;'>bool</text>  <text x='896' y='445'>&#9654;</text><a xlink:href='#StreamFlix.users.preferences'><text id='StreamFlix&#46;users&#46;preferences' x='915' y='445'>preferences</text><title>&#10697;  preferences
+     object</title></a>
+<text x='1083' y='446' class='dataType' style='fill:#B4C0B2;'>object</text>
+<!-- == Table 'watch_history' == -->
+<rect id='depict_StreamFlix&#46;watch&#95;history' class='entity' style='stroke:#F9FAFC' x='893' y='542' width='152' height='152' rx='4' ry='4' />
+<rect x='893' y='542' width='152' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='893' y='546' width='152' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<a xlink:href='#StreamFlix.watch_history'><text id='depict&#45;StreamFlix&#46;watch&#95;history' x='926' y='563' class='tableHeader' style='fill:#414348;'>watch&#95;history</text><title>Collection StreamFlix.watch_history</title></a>
+  <use x='894' y='585' xlink:href='#nn'/><use x='895' y='584' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.watch_history._id'><text id='StreamFlix&#46;watch&#95;history&#46;&#95;id' x='915' y='597' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='1026' y='598' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='894' y='604' xlink:href='#nn'/><a xlink:href='#StreamFlix.watch_history.user_id'><text id='StreamFlix&#46;watch&#95;history&#46;user&#95;id' x='915' y='616' onmouseover="hghl(['watch_history_fk_watch_history_users','StreamFlix.users._id'])" onmouseout="uhghl(['watch_history_fk_watch_history_users','StreamFlix.users._id'])">user&#95;id</text><title>&#10697;  user_id
+     * objectid
+ &#8599; watch_history( _id )</title></a>
+<text x='1026' y='617' class='dataType' style='fill:#B2B7C0;'>objectId</text><a xlink:href='#StreamFlix.watch_history.user_id'><use x='1031' y='603' xlink:href='#fk'/><title>&#x1F517;  References users ( user_id -&gt; _id ) </title></a>
+  <use x='894' y='623' xlink:href='#nn'/><a xlink:href='#StreamFlix.watch_history.movie_id'><text id='StreamFlix&#46;watch&#95;history&#46;movie&#95;id' x='915' y='635'>movie&#95;id</text><title>&#10697;  movie_id
+     * objectid</title></a>
+<text x='1026' y='636' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='894' y='642' xlink:href='#nn'/><a xlink:href='#StreamFlix.watch_history.watched_at'><text id='StreamFlix&#46;watch&#95;history&#46;watched&#95;at' x='915' y='654'>watched&#95;at</text><title>&#10697;  watched_at
+     * date</title></a>
+<text x='1026' y='655' class='dataType' style='fill:#B2B7C0;'>date</text>  <a xlink:href='#StreamFlix.watch_history.device'><text id='StreamFlix&#46;watch&#95;history&#46;device' x='915' y='673'>device</text><title>&#10697;  device
+     string</title></a>
+<text x='1026' y='674' class='dataType' style='fill:#B2B7C0;'>string</text>
+<!-- == Table 'subscriptions' == -->
+<rect id='depict_StreamFlix&#46;subscriptions' class='entity' style='stroke:#F9FAFC' x='589' y='314' width='209' height='152' rx='4' ry='4' />
+<rect x='589' y='314' width='209' height='8' rx='4' ry='4' style='stroke-width:0;fill:#5D95ED'/>
+<rect x='589' y='318' width='209' height='29' style='stroke-width:0;fill:#F9FAFC'/>
+<a xlink:href='#StreamFlix.subscriptions'><text id='depict&#45;StreamFlix&#46;subscriptions' x='652' y='335' class='tableHeader' style='fill:#414348;'>subscriptions</text><title>Collection StreamFlix.subscriptions</title></a>
+  <use x='590' y='357' xlink:href='#nn'/><use x='591' y='356' xlink:href='#pk'><title>&#x1F511;  Pk _id_ ( _id ) </title></use><a xlink:href='#StreamFlix.subscriptions._id'><text id='StreamFlix&#46;subscriptions&#46;&#95;id' x='611' y='369' class='colPk'>&#95;id</text><title>&#10697;  _id
+     * objectid</title></a>
+<text x='779' y='370' class='dataType' style='fill:#B2B7C0;'>objectId</text>  <use x='590' y='376' xlink:href='#nn'/><a xlink:href='#StreamFlix.subscriptions.user_id'><text id='StreamFlix&#46;subscriptions&#46;user&#95;id' x='611' y='388' onmouseover="hghl(['subscriptions_fk_subscriptions_users','StreamFlix.users._id'])" onmouseout="uhghl(['subscriptions_fk_subscriptions_users','StreamFlix.users._id'])">user&#95;id</text><title>&#10697;  user_id
+     * objectid
+ &#8599; subscriptions( _id )</title></a>
+<text x='779' y='389' class='dataType' style='fill:#B2B7C0;'>objectId</text><a xlink:href='#StreamFlix.subscriptions.user_id'><use x='784' y='375' xlink:href='#fk'/><title>&#x1F517;  References users ( user_id -&gt; _id ) </title></a>
+  <use x='590' y='395' xlink:href='#nn'/><a xlink:href='#StreamFlix.subscriptions.plan'><text id='StreamFlix&#46;subscriptions&#46;plan' x='611' y='407'>plan</text><title>&#10697;  plan
+     * enum(&apos;basic&apos;,&apos;premium&apos;)</title></a>
+<text x='779' y='408' class='dataType' style='fill:#B2B7C0;'>enum&#40;&#39;Basic&#39;&#44;&#39;Premium&#39;&#41;</text>  <a xlink:href='#StreamFlix.subscriptions.status'><text id='StreamFlix&#46;subscriptions&#46;status' x='611' y='426'>status</text><title>&#10697;  status
+     enum(&apos;active&apos;,&apos;paused&apos;,&apos;cancelled&apos;)</title></a>
+<text x='779' y='427' class='dataType' style='fill:#B2B7C0;'>enum&#40;&#39;Active&#39;&#44;&#39;Paused&#46;&#46;&#46;</text>  <a xlink:href='#StreamFlix.subscriptions.startDate'><text id='StreamFlix&#46;subscriptions&#46;startDate' x='611' y='445'>startDate</text><title>&#10697;  startDate
+     date</title></a>
+<text x='779' y='446' class='dataType' style='fill:#B2B7C0;'>date</text>
+</g></svg>
