@@ -33,23 +33,23 @@ ___
 
 You can download sample schema diagrams for different databases below:
 ### MySQL
-![MySQL Diagram](resources/erd-samples/erd-mysql.svg)
+[MySQL Diagram](resources/erd-samples/erd-mysql.svg)
 
 ### PostgreSQL
-![PostgreSQL Diagram](resources/erd-samples/erd-postgres.svg)
+[PostgreSQL Diagram](resources/erd-samples/erd-postgres.svg)
 
 ### Oracle
-![Oracle Diagram](resources/erd-samples/erd-oracle.svg)
+[Oracle Diagram](resources/erd-samples/erd-oracle.svg)
 
 ### Snowflake
-![Snowflake Diagram](resources/erd-samples/erd-snowflake.svg)
+[Snowflake Diagram](resources/erd-samples/erd-snowflake.svg)
 
 ### Large Database
 
-![Large Database Diagram](resources/erd-samples/erd-large-database.svg)
+[Large Database Diagram](resources/erd-samples/erd-large-database.svg)
 
 ### MongoDB
-![MongoDB Diagram](resources/erd-samples/erd-mongodb.svg)
+[MongoDB Diagram](resources/erd-samples/erd-mongodb.svg)
 
 
 ## DbSchema Overview
