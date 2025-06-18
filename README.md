@@ -29,27 +29,21 @@ For community discussions, support, and feedback, visit our [Forum](https://gith
 
 ___
 
-## Download Sample ER Diagrams
+## Download Sample Interactive ER Diagrams
 
-You can download sample schema diagrams for different databases below:
-### MySQL
-[MySQL Diagram](resources/erd-samples/erd-mysql.svg)
+You can download sample schema diagrams for different databases below, in SVG format:
 
-### PostgreSQL
-[PostgreSQL Diagram](resources/erd-samples/erd-postgres.svg)
+- [MySQL Diagram](resources/erd-samples/erd-mysql.svg)
 
-### Oracle
-[Oracle Diagram](resources/erd-samples/erd-oracle.svg)
+- [PostgreSQL Diagram](resources/erd-samples/erd-postgres.svg)
 
-### Snowflake
-[Snowflake Diagram](resources/erd-samples/erd-snowflake.svg)
+- [Oracle Diagram](resources/erd-samples/erd-oracle.svg)
 
-### Large Database
+- [Snowflake Diagram](resources/erd-samples/erd-snowflake.svg)
 
-[Large Database Diagram](resources/erd-samples/erd-large-database.svg)
+- [Large Database Diagram](resources/erd-samples/erd-large-database.svg)
 
-### MongoDB
-[MongoDB Diagram](resources/erd-samples/erd-mongodb.svg)
+- [MongoDB Diagram](resources/erd-samples/erd-mongodb.svg)
 
 
 ## DbSchema Overview
