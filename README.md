@@ -28,6 +28,30 @@ Report bugs or request new features: [Issues](https://github.com/dbschema-pro/db
 For community discussions, support, and feedback, visit our [Forum](https://github.com/dbschema-pro/dbschema-pro/discussions).
 
 ___
+
+## Download Sample ER Diagrams
+
+You can download sample schema diagrams for different databases below:
+### MySQL
+![MySQL Diagram](resources/erd-samples/erd-mysql.svg)
+
+### PostgreSQL
+![PostgreSQL Diagram](resources/erd-samples/erd-postgres.svg)
+
+### Oracle
+![Oracle Diagram](resources/erd-samples/erd-oracle.svg)
+
+### Snowflake
+![Snowflake Diagram](resources/erd-samples/erd-snowflake.svg)
+
+### Large Database
+
+![Large Database Diagram](resources/erd-samples/erd-large-database.svg)
+
+### MongoDB
+![MongoDB Diagram](resources/erd-samples/erd-mongodb.svg)
+
+
 ## DbSchema Overview
 **DbSchema Model**: Design your database visually by creating tables, defining foreign keys, adding tags, comments, and more. The model is independent of the database, allowing you to work offline and sync changes later.
 
